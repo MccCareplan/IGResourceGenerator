@@ -14,6 +14,7 @@ import com.google.api.services.sheets.v4.model.ValueRange;
 
 import java.io.*;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.Template;
@@ -21,6 +22,7 @@ import org.apache.velocity.app.Velocity;
 import org.apache.velocity.exception.ResourceNotFoundException;
 import org.apache.velocity.exception.ParseErrorException;
 import org.apache.velocity.exception.MethodInvocationException;
+import org.eclipse.jetty.io.nio.SelectorManager;
 
 
 import java.security.GeneralSecurityException;
@@ -114,7 +116,7 @@ public class MainProcessor {
 
             String[] variables = new String[1];
 
-            for (List row : values) {
+            for (List<Object> row : values) {
                 //The First Row is the variable names
                 if (rowCnt == 0) {
                     size = row.size();
@@ -130,17 +132,25 @@ public class MainProcessor {
                     VelocityContext context = new VelocityContext(globalContext);
                     //Fill in the variables based on what is in the row
                     for (int a = 0; a < size; a++) {
-                        context.put(variables[a],row.get(a));
+                        String value = null;
+                        //Protect against short rows
+                        if (a < row.size()) {
+                            value = processCellData((String) row.get(a));
+
+                        }
+
+                        if (value != null) {
+                            context.put(variables[a], value);
+                        }
                     }
+                    String id = (String) context.get("Id");
                     String type = (String) context.get("Type");
                     //We will skip unknown types
                     if (typeMapping.containsKey(type))
                     {
-                        generateOutput(outputDirectory, templateDirectory, context, typeMapping.get(type));
-                    }
-                    else
-                    {
-                        System.out.println(String.format("Type %s not processed since no mapping is defined to a template for it",type));
+                        generateOutput(outputDirectory, templateDirectory, context, typeMapping.get(type), id);
+                    } else {
+                        System.out.println(String.format("Type %s not processed since no mapping is defined to a template for it", type));
                     }
 
                 }
@@ -149,24 +159,43 @@ public class MainProcessor {
         }
     }
 
+    static String processCellData(String cell) {
+        //Guard for null
+        if (cell == null)
+            return cell;
+        //Remove Starting " if present
+        if (cell.startsWith("\"")) {
+            if (cell.length() == 1) {
+                return null;
+            }
+            cell = cell.substring(1);
+        }
+
+        //Remove Trailing quote if present
+        if (cell.endsWith("\"")) {
+            if (cell.length() == 1) {
+                return null;
+            }
+            cell = cell.substring(0, cell.length() - 2);
+        }
+        cell = StringEscapeUtils.escapeXml(cell);
+
+        return cell.isEmpty() ? null : cell;
+    }
+
     /**
      * Reads the Mapping between type names and the template names into the HashMap
-     * @param types
-     * @return
      */
-    static HashMap<String,String> getTypeMapping(ValueRange types)
-    {
+    static HashMap<String, String> getTypeMapping(ValueRange types) {
         HashMap<String, String> typeMap = new HashMap<>();
         List<List<Object>> values = types.getValues();
         int rowCnt = 0;
-        for (List row : values) {
+        for (List<Object> row : values) {
             //We Ignore the header row
-            if (rowCnt > 0)
-            {
+            if (rowCnt > 0) {
                 String key = (String) row.get(0);
-                if (StringUtils.isNotEmpty(key))
-                {
-                    typeMap.put(key,(String)row.get(1));
+                if (StringUtils.isNotEmpty(key)) {
+                    typeMap.put(key, (String) row.get(1));
                 }
             }
             rowCnt++;
@@ -174,17 +203,22 @@ public class MainProcessor {
         return typeMap;
     }
 
-    static void generateOutput(String outputDirectory,  String templateDirectory, VelocityContext context, String templateName) {
+    static void generateOutput(String outputDirectory, String templateDirectory, VelocityContext context, String templateName, String id) {
 
-        String templateFulllFileName = String.format("%s"+ File.separator+"%s",templateDirectory, templateName);
-        Template template = null;
+        String templateFulllFileName = String.format("%s" + File.separator + "%s", templateDirectory, templateName);
+        String outputFullFileName = String.format("%s" + File.separator + "%s.xml", outputDirectory, id);
+        Template template;
         try {
             template = Velocity.getTemplate(templateFulllFileName);
-            StringWriter sw = new StringWriter();
+            //StringWriter sw = new StringWriter();
 
-            template.merge(context, sw);
+            FileWriter file = new FileWriter(outputFullFileName);
 
-            System.out.println(sw);
+            template.merge(context, file);
+            file.close();
+
+            //System.out.println(sw);
+
 
         } catch (ResourceNotFoundException rnfe) {
             // couldn't find the template
