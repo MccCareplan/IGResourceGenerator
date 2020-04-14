@@ -38,14 +38,14 @@ import java.util.Iterator;
 import java.text.SimpleDateFormat;
 
 public class MainProcessor {
-    private static final String APPLICATION_NAME = "Google Sheets API Java Quickstart";
+    private static final String APPLICATION_NAME = "HL7 MCC IG Generator";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
     private static final String TOKENS_DIRECTORY_PATH = "tokens";
 
     private final Logger logger = LoggerFactory.getLogger(MainProcessor.class);
 
     /**
-     * Global instance of the scopes required by this quickstart.
+     * Global instance of the scopes required by this application
      * If modifying these scopes, delete your previously saved tokens/ folder.
      */
     private static final List<String> SCOPES = Collections.singletonList(SheetsScopes.SPREADSHEETS_READONLY);
