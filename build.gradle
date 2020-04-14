@@ -1,14 +1,23 @@
 plugins {
     id 'java'
+    id "com.github.johnrengelman.shadow" version "5.2.0"
 }
-apply plugin: 'application'
 
-mainClassName="MainProcessor"
+
+
+
 group 'io.saperi.nih.mcccarplan'
 version '1.0-SNAPSHOT'
 
 
 sourceCompatibility = 1.8
+
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'MainProcessor'
+    }
+}
 
 repositories {
     mavenCentral()
@@ -16,10 +25,12 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile 'org.slf4j:slf4j-api:1.7.13'
-    compile 'org.apache.velocity:velocity:1.7'
-    compile 'com.google.api-client:google-api-client:1.30.4'
-    compile 'com.google.oauth-client:google-oauth-client-jetty:1.30.4'
-    compile 'com.google.apis:google-api-services-sheets:v4-rev581-1.25.0'
-    compile "org.apache.velocity:velocity"
+    implementation 'org.slf4j:slf4j-api:1.7.25'
+    implementation 'org.slf4j:slf4j-simple:1.7.25'
+    implementation 'commons-cli:commons-cli:1.4'
+    implementation 'org.apache.velocity:velocity:1.7'
+    implementation 'com.google.api-client:google-api-client:1.30.4'
+    implementation 'com.google.oauth-client:google-oauth-client-jetty:1.30.4'
+    implementation 'com.google.apis:google-api-services-sheets:v4-rev581-1.25.0'
+    implementation 'org.apache.velocity:velocity'
 }

@@ -14,6 +14,8 @@ import com.google.api.services.sheets.v4.model.ValueRange;
 
 import java.io.*;
 
+import jdk.javadoc.internal.doclets.toolkit.util.DocFinder;
+import org.apache.commons.cli.*;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.velocity.VelocityContext;
@@ -22,14 +24,16 @@ import org.apache.velocity.app.Velocity;
 import org.apache.velocity.exception.ResourceNotFoundException;
 import org.apache.velocity.exception.ParseErrorException;
 import org.apache.velocity.exception.MethodInvocationException;
-import org.eclipse.jetty.io.nio.SelectorManager;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.security.GeneralSecurityException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Date;
+import java.util.Iterator;
 
 import java.text.SimpleDateFormat;
 
@@ -38,12 +42,23 @@ public class MainProcessor {
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
     private static final String TOKENS_DIRECTORY_PATH = "tokens";
 
+    private final Logger logger = LoggerFactory.getLogger(MainProcessor.class);
+
     /**
      * Global instance of the scopes required by this quickstart.
      * If modifying these scopes, delete your previously saved tokens/ folder.
      */
     private static final List<String> SCOPES = Collections.singletonList(SheetsScopes.SPREADSHEETS_READONLY);
     private static final String CREDENTIALS_FILE_PATH = "/credentials.json";
+
+    private OutputProcessor output = new OutputProcessor();
+    private String prefix = "";
+    private String suffix = "";
+    private String filterType = null;
+    private String filterId = null;
+
+    private String outputDirectory = "output";
+    private String templateDirectory = "templates";
 
     /**
      * Creates an authorized Credential object.
@@ -70,10 +85,35 @@ public class MainProcessor {
         return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }
 
+
     /**
      * Processes the shared spreadssheet to generate resource files
      */
     public static void main(String... args) throws IOException, GeneralSecurityException {
+        CommandLineParser parser = new DefaultParser();
+        Options options = getOptions();
+        try {
+            CommandLine cmd = parser.parse(options, args);
+            if (cmd.hasOption("help") || cmd.hasOption("h")) {
+                HelpFormatter formatter = new HelpFormatter();
+                formatter.printHelp("IGResourceGenerator", options);
+               return;
+            }
+            // Ok we now had the command line
+            MainProcessor processor = new MainProcessor();
+            processor.process(cmd);
+
+
+        } catch (ParseException e) {
+            System.err.println("Error parsing command line: " + e.getLocalizedMessage());
+            return;
+        }
+
+        return;
+    }
+    void process(CommandLine cmd) throws IOException, GeneralSecurityException {
+        output.setLogger(logger);
+
         // Build a new authorized API client service.
         final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
         final String spreadsheetId = "1E7ps-euW93GN4f5L61rOQAuK6RH8x69ZXAkD2i0VDS0";
@@ -81,8 +121,8 @@ public class MainProcessor {
         final String range = "Main!A1:ZZ";
         final String typeRange = "TypeMapping!A1:B";
 
-        String outputDirectory = "output";
-        String templateDirectory = "templates";
+        processOptions(cmd);
+
 
         Velocity.init();
 
@@ -105,61 +145,119 @@ public class MainProcessor {
 
         HashMap<String, String> typeMapping = getTypeMapping(types);
 
+
         List<List<Object>> values = data.getValues();
         if (values == null || values.isEmpty()) {
-            System.out.println("No data found.");
+            output.println("No data found.");
         } else {
+            output.println("Processing Spreedsheet data");
             int rowCnt = 0;
             int size = 0;
 
-            // Setup global variables
-
-            String[] variables = new String[1];
-
-            for (List<Object> row : values) {
-                //The First Row is the variable names
-                if (rowCnt == 0) {
-                    size = row.size();
-                    variables = new String[size];
-                    //Set up Variables Name to Row
-                    for (int a = 0; a < size; a++) {
-                        variables[a] = (String) row.get(a);
-                    }
+            if (filterType != null)
+            {
+                output.println("Filtering by type: "+filterType);
+                if (typeMapping.containsKey(filterType))
+                {
+                    filter(values,"Type", filterType);
                 }
-                //All other rows need to be processed.
-                else {
-                    //Create a context for just this row, we should inherit the globalContext
-                    VelocityContext context = new VelocityContext(globalContext);
-                    //Fill in the variables based on what is in the row
-                    for (int a = 0; a < size; a++) {
-                        String value = null;
-                        //Protect against short rows
-                        if (a < row.size()) {
-                            value = processCellData((String) row.get(a));
-
-                        }
-
-                        if (value != null) {
-                            context.put(variables[a], value);
-                        }
-                    }
-                    String id = (String) context.get("Id");
-                    String type = (String) context.get("Type");
-                    //We will skip unknown types
-                    if (typeMapping.containsKey(type))
-                    {
-                        generateOutput(outputDirectory, templateDirectory, context, typeMapping.get(type), id);
-                    } else {
-                        System.out.println(String.format("Type %s not processed since no mapping is defined to a template for it", type));
-                    }
-
+                else
+                {
+                    output.println("Type "+filterType+" currently not mapped to any templates");
+                    return;
                 }
-                rowCnt++;
             }
+
+            if (filterId != null)
+            {
+                output.println("Filtering by Id: "+filterId);
+                filter(values,"Id", filterId);
+            }
+
+            Iterator<List<Object>> itr = values.iterator();
+            List<Object> row = itr.next();
+            size = row.size();
+            String[] variables  = new String[size];
+
+            //Set up Variables Name to Row
+            for (int a = 0; a < size; a++) {
+                variables[a] = (String) row.get(a);
+            }
+
+
+            while (itr.hasNext()) {
+                row = itr.next();
+                //The First Row is the variable names
+                //Create a context for just this row, we should inherit the globalContext
+                VelocityContext context = new VelocityContext(globalContext);
+                //Fill in the variables based on what is in the row
+                for (int a = 0; a < size; a++) {
+                    String value = null;
+                    //Protect against short rows
+                    if (a < row.size()) {
+                        value = this.processCellData((String) row.get(a));
+
+                    }
+
+                    if (value != null) {
+                        context.put(variables[a], value);
+                    }
+                }
+                String id = (String) context.get("Id");
+                String type = (String) context.get("Type");
+                //We will skip unknown types
+                if (typeMapping.containsKey(type)) {
+                    this.generateOutput(context, type, typeMapping.get(type), id);
+                } else {
+                    output.println(String.format("Type %s not processed since no mapping is defined to a template for it", type));
+                }
+            }
+            output.println("Finished");
         }
     }
 
-    static String processCellData(String cell) {
+    private void filter(List<List<Object>> values,String columnId, String match)
+    {
+        int fieldIndex = 0;
+
+        Iterator<List<Object>> itr = values.iterator();
+        List<Object> row;
+
+        //Deal with header column
+        if (itr.hasNext()) {
+            row = itr.next();
+            fieldIndex = row.indexOf(columnId);
+        }
+
+        while (itr.hasNext()) {
+            row = itr.next();
+            String coltype = (String) row.get(fieldIndex);
+            if (coltype.compareTo(match) != 0)
+                itr.remove();
+        }
+
+    }
+    /**
+     * Reads the Mapping between type names and the template names into the HashMap
+     */
+    static HashMap<String, String> getTypeMapping(ValueRange types) {
+        HashMap<String, String> typeMap = new HashMap<>();
+        List<List<Object>> values = types.getValues();
+        int rowCnt = 0;
+        for (List<Object> row : values) {
+            //We Ignore the header row
+            if (rowCnt > 0) {
+                String key = (String) row.get(0);
+                if (StringUtils.isNotEmpty(key)) {
+                    typeMap.put(key, (String) row.get(1));
+                }
+            }
+            rowCnt++;
+        }
+        return typeMap;
+    }
+
+    private String processCellData(String cell) {
         //Guard for null
         if (cell == null)
             return cell;
@@ -183,30 +281,14 @@ public class MainProcessor {
         return cell.isEmpty() ? null : cell;
     }
 
-    /**
-     * Reads the Mapping between type names and the template names into the HashMap
-     */
-    static HashMap<String, String> getTypeMapping(ValueRange types) {
-        HashMap<String, String> typeMap = new HashMap<>();
-        List<List<Object>> values = types.getValues();
-        int rowCnt = 0;
-        for (List<Object> row : values) {
-            //We Ignore the header row
-            if (rowCnt > 0) {
-                String key = (String) row.get(0);
-                if (StringUtils.isNotEmpty(key)) {
-                    typeMap.put(key, (String) row.get(1));
-                }
-            }
-            rowCnt++;
-        }
-        return typeMap;
-    }
 
-    static void generateOutput(String outputDirectory, String templateDirectory, VelocityContext context, String templateName, String id) {
+    void generateOutput( VelocityContext context, String type, String templateName, String id) {
 
         String templateFulllFileName = String.format("%s" + File.separator + "%s", templateDirectory, templateName);
-        String outputFullFileName = String.format("%s" + File.separator + "%s.xml", outputDirectory, id);
+        String outputFullFileName = String.format("%s" + File.separator + "%s%s%s.xml", outputDirectory, prefix, id, suffix);
+        if (output.isVerbose()) {
+            output.vprintln(String.format("Generating %s: %s to %s", type, id, outputFullFileName));
+        }
         Template template;
         try {
             template = Velocity.getTemplate(templateFulllFileName);
@@ -222,17 +304,17 @@ public class MainProcessor {
 
         } catch (ResourceNotFoundException rnfe) {
             // couldn't find the template
-            System.out.println(String.format("Unable to file template %s", templateFulllFileName));
+            output.printException(String.format("Unable to file template %s", templateFulllFileName));
         } catch (ParseErrorException pee) {
             // syntax error: problem parsing the template
-            System.out.println(String.format("template %s, parse error: %s", templateFulllFileName, pee.getLocalizedMessage()));
-            pee.printStackTrace(System.out);
+            output.printException(String.format("template %s, parse error: %s", templateFulllFileName, pee.getLocalizedMessage()));
+            output.printException(pee);
         } catch (MethodInvocationException mie) {
             // something invoked in the template
             // threw an exception
-            mie.printStackTrace(System.out);
+            output.printException(mie);
         } catch (Exception e) {
-            e.printStackTrace(System.out);
+            output.printException(e);
         }
 
 
@@ -247,4 +329,76 @@ public class MainProcessor {
 
         //Add additional automated fields here.
     }
+
+    // Command Line Options Handling
+
+    private static Options getOptions() {
+        Options options = new Options();
+
+        Option help = new Option("h", "help", false, "print this help text");
+        Option silent = new Option("q", "quit", false, "runs with no normal output");
+        Option verbose = new Option("v", "verbose", false, "runs with verbose output");
+        //Option TemplateDirectory (-td or -templateDirectory dir)
+        //Option OutputDirectory (-od or -outputDirectory dir)
+        //Option for Type (-t or -type name)
+        //Options for Id (-i or -id name)
+        Option prefix = Option.builder("p").argName("prefix").longOpt("prefix").hasArg().desc("a prefix for the generated file").build();
+        Option suffix = Option.builder("s").argName("suffix").longOpt("suffix").hasArg().desc("a suffix for the generated file").build();
+        Option id = Option.builder("i").argName("id").longOpt("id").hasArg().desc("the id of the items(s) to generate").build();
+        Option type = Option.builder("t").argName("type").longOpt("type").hasArg().desc("the type of the items(s) to generate").build();
+        Option td = Option.builder("td").argName("directory").longOpt("templates").hasArg().desc("the directory in which source templates are located").build();
+        Option od = Option.builder("od").argName("directory").longOpt("output").hasArg().desc("the directory where generated output should be placed").build();
+        options.addOption(help);
+        options.addOption(silent);
+        options.addOption(verbose);
+        options.addOption(prefix);
+        options.addOption(suffix);
+        options.addOption(id);
+        options.addOption(type);
+        options.addOption(td);
+        options.addOption(od);
+        return options;
+    }
+    private void processOptions(CommandLine cmd)
+    {
+        if (cmd.hasOption("q")) output.setUnmuted(false);
+        if (cmd.hasOption("v")) output.setVerbose(true);
+        if (cmd.hasOption("p")) prefix = cmd.getOptionValue("p");
+        if (cmd.hasOption("s")) suffix = cmd.getOptionValue("s");
+        if (cmd.hasOption("td")) {
+            String dir = cmd.getOptionValue("td");
+            if (isDirectoryValid(dir))
+            {
+                templateDirectory = dir;
+            }
+            else
+            {
+                output.printException("Invalid template directory "+dir);
+                return;
+            }
+        }
+        if (cmd.hasOption("od")) {
+            String dir = cmd.getOptionValue("od");
+            if (isDirectoryValid(dir))
+            {
+                outputDirectory = dir;
+            }
+            else
+            {
+                output.printException("Output directory "+dir+" is either invalid or does not exist");
+                return;
+            }
+        }
+        if (cmd.hasOption("i")) filterId = cmd.getOptionValue("i");
+        if (cmd.hasOption("t")) filterType = cmd.getOptionValue("t");
+    }
+
+    private boolean isDirectoryValid(String dir)
+    {
+        File file = new File(dir);
+        return file.isDirectory();
+
+    }
+
+
 }
