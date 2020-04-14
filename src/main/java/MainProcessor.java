@@ -184,7 +184,7 @@ public class MainProcessor {
                 variables[a] = (String) row.get(a);
             }
 
-
+            int processCnt=0;
             while (itr.hasNext()) {
                 row = itr.next();
                 //The First Row is the variable names
@@ -208,12 +208,18 @@ public class MainProcessor {
                 //We will skip unknown types
                 if (typeMapping.containsKey(type)) {
                     this.generateOutput(context, type, typeMapping.get(type), id);
+                    processCnt++;
                 } else {
                     output.println(String.format("Type %s not processed since no mapping is defined to a template for it", type));
                 }
             }
-            output.println("Finished");
+            output.println(String.format("Finished: %s processed",numberAsEntry(processCnt)));
         }
+    }
+
+    private String numberAsEntry(int num)
+    {
+       return String.format("%s (%s) %s",NumberToEnglish.convert(num),Integer.toString(num),num==1?"entry":"entries");
     }
 
     private void filter(List<List<Object>> values,String columnId, String match)
