@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition
         xmlns="http://hl7.org/fhir">
-    <id value="ChronicKidneyDiseaseTest1"/>
+    <id value="HyperkalemiaConditions"/>
     <!-- [Sean]Assume this metadata is system generated (We will make all "everyone") -->
     <meta>
     <versionId value="10"/>
@@ -17,21 +17,21 @@
     </security>
     </meta>
     <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-        <valueMarkdown value="This is the profile intro"/>
+        <valueMarkdown value="$ProfileIntro"/>
     </extension>
     <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
         <!-- Profile Note - Not sure if we will use this -->
         <valueMarkdown value="This is the note field"/>
     </extension>
-    <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/ChronicKidneyDiseaseTest1"/>
-    <name value="ChronicKidneyDiseaseCondition"/>
-    <title value="Chronic Kidney Disease Condition/>
+    <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/HyperkalemiaConditions"/>
+    <name value="HyperkalemiaConditions"/>
+    <title value="Hyperkalemia Conditions/>
     <!-- [Sean]This will all start as draft - I'm not sure of the rules around template status -->
     <status value=" draft"/>
     <date value="2020-04-17"/>
     <publisher value="Patient Care Work Group"/>
-    <description value="This is the profile description"/>
-    <purpose value="This is the purpose field"/>
+    <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch anemia conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to an anemia condition value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+    <purpose value="$Purpose"/>
     <!-- [Sean] Do we leave this blanks if there is no copywright or is this later populated with HL7 after published after ballotting?? -->
     <copyright value="This is for copyright"/>
     <fhirVersion value="4.0.1"/>
@@ -48,13 +48,13 @@
         </element>
         <element id="Condition.code">
             <path value="Condition.code"/>
-            <label value="NARRATIVE FIELD: THIS IS THE LABE"/>
+            <label value="$Label"/>
             <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="NARRATIVE FIELD: THIS IS THE SHORT DESCRIPTION"/>
+            <short value="This set of values contains diagnosis terms representing hyperkalemia conditions"/>
             <binding>
                 <!-- All of our value sets will be required -->
                 <strength value="required"/>
-                                    <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.159/expansion/Latest"/>
+                                    <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.50/expansion/Latest"/>
                             </binding>
         </element>
         <!-- We will make Condition.onset "Must Support" in all conditions -->
