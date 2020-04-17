@@ -25,7 +25,7 @@
     </extension>
     <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/CognitivehealthImpairedMemoryDisorders"/>
     <name value="CognitivehealthImpairedMemoryDisorders"/>
-    <title value="Cognitive health and Impaired Memory Disorders/>
+    <title value="Cognitive health and Impaired Memory Disorders"/>
     <!-- [Sean]This will all start as draft - I'm not sure of the rules around template status -->
     <status value=" draft"/>
     <date value="2020-04-17"/>

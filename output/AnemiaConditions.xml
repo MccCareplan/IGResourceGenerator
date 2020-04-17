@@ -25,7 +25,7 @@
     </extension>
     <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/AnemiaConditions"/>
     <name value="AnemiaConditions"/>
-    <title value="Anemia Conditions/>
+    <title value="Anemia Conditions"/>
     <!-- [Sean]This will all start as draft - I'm not sure of the rules around template status -->
     <status value=" draft"/>
     <date value="2020-04-17"/>
