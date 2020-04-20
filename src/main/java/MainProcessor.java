@@ -27,7 +27,20 @@ import org.apache.velocity.exception.MethodInvocationException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathFactory;
 import java.security.GeneralSecurityException;
 import java.util.Collections;
 import java.util.HashMap;
@@ -184,6 +197,7 @@ public class MainProcessor {
                 variables[a] = (String) row.get(a);
             }
 
+
             int processCnt=0;
             while (itr.hasNext()) {
                 row = itr.next();
@@ -215,6 +229,20 @@ public class MainProcessor {
             }
             output.println(String.format("Finished: %s processed",numberAsEntry(processCnt)));
         }
+    }
+
+    private void writeBundleHeader(StringWriter output, int size) throws IOException {
+        output.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
+        output.write( "<Bundle xmlns=\"http://hl7.org/fhir\">\n");
+	    output.write( "<type value=\"transaction\"/>\n");
+
+        String total = String.format("<total value=\"%s\"/>\n", Integer.toString(size));
+        output.write(total);
+
+    }
+
+    private void writeBundleEnd(StringWriter output) throws IOException {
+        output.write("</Bundle>");
     }
 
     private String numberAsEntry(int num)
@@ -300,9 +328,15 @@ public class MainProcessor {
             template = Velocity.getTemplate(templateFulllFileName);
             //StringWriter sw = new StringWriter();
 
-            FileWriter file = new FileWriter(outputFullFileName);
 
-            template.merge(context, file);
+            StringWriter resource = new StringWriter();
+            StringWriter buffer = new StringWriter();
+            writeBundleHeader(buffer,1);
+            template.merge(context, resource);
+            buffer.write(resource.toString());
+            writeBundleEnd(buffer);
+            FileWriter file = new FileWriter(outputFullFileName);
+            file.write(toPrettyString(buffer.toString(), 2));
             file.close();
 
             //System.out.println(sw);
@@ -354,7 +388,9 @@ public class MainProcessor {
         Option type = Option.builder("t").argName("type").longOpt("type").hasArg().desc("the type of the items(s) to generate").build();
         Option td = Option.builder("td").argName("directory").longOpt("templates").hasArg().desc("the directory in which source templates are located").build();
         Option od = Option.builder("od").argName("directory").longOpt("output").hasArg().desc("the directory where generated output should be placed").build();
+        Option bundle = Option.builder("b").argName("filename").longOpt("bundle").hasArg().desc("create the output in a single bundle file").build();
         options.addOption(help);
+        options.addOption(bundle);
         options.addOption(silent);
         options.addOption(verbose);
         options.addOption(prefix);
@@ -406,5 +442,39 @@ public class MainProcessor {
 
     }
 
+    public static String toPrettyString(String xml, int indent) {
+        try {
+            // Turn xml string into a document
+            Document document = DocumentBuilderFactory.newInstance()
+                    .newDocumentBuilder()
+                    .parse(new InputSource(new ByteArrayInputStream(xml.getBytes("utf-8"))));
 
+            // Remove whitespaces outside tags
+            document.normalize();
+            XPath xPath = XPathFactory.newInstance().newXPath();
+            NodeList nodeList = (NodeList) xPath.evaluate("//text()[normalize-space()='']",
+                    document,
+                    XPathConstants.NODESET);
+
+            for (int i = 0; i < nodeList.getLength(); ++i) {
+                Node node = nodeList.item(i);
+                node.getParentNode().removeChild(node);
+            }
+
+            // Setup pretty print options
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            transformerFactory.setAttribute("indent-number", indent);
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+            transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+
+            // Return pretty print xml string
+            StringWriter stringWriter = new StringWriter();
+            transformer.transform(new DOMSource(document), new StreamResult(stringWriter));
+            return stringWriter.toString();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
