@@ -3,13 +3,16 @@ Implementation Guide Resource Generator
 ***
 This process drives of the spreadsheet at https://docs.google.com/spreadsheets/d/1E7ps-euW93GN4f5L61rOQAuK6RH8x69ZXAkD2i0VDS0/
 ##Getting started 
+```
 >1 Download the project.
 >2 create the output directory (e.g. mkdir output).
 >3 $java -jar dist/IGResourceGenerator-1.0-RELEASE-all.jar
+```
 
 ##Basic use
 ```
 usage: java -jar dist/IGResourceGenerator-1.0-RELEASE-all.jar
+ -b, --bundle <filename>       create in a single bundle file 
  -h,--help                     print this help text
  -i,--id <id>                  the id of the items(s) to generate
  -od,--output <directory>      the directory where generated output should be placed
