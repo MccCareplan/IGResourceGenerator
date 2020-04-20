@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 public class OutputProcessor {
     private boolean verbose = false;
     private boolean unmuted = true;
+    boolean expectionsLogged = false;
     private Logger logger;
 
     public OutputProcessor()
@@ -19,6 +20,8 @@ public class OutputProcessor {
         this.verbose = verbose;
         this.unmuted = unmuted;
     }
+
+    public boolean hasLoggedExceptions() {return expectionsLogged;};
 
     public boolean isVerbose() {
         return verbose;
@@ -55,6 +58,7 @@ public class OutputProcessor {
     }
 
     public void printException(String msg) {
+        expectionsLogged = true;
         if (unmuted) {
             System.out.println(msg);
         } else {
@@ -63,6 +67,7 @@ public class OutputProcessor {
     }
 
     public void printException(Exception exp) {
+        expectionsLogged = true;
         if (unmuted) {
             exp.printStackTrace(System.out);
         } else {

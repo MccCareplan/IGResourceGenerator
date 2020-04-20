@@ -14,7 +14,7 @@ import com.google.api.services.sheets.v4.model.ValueRange;
 
 import java.io.*;
 
-import jdk.javadoc.internal.doclets.toolkit.util.DocFinder;
+
 import org.apache.commons.cli.*;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
@@ -72,6 +72,7 @@ public class MainProcessor {
 
     private String outputDirectory = "output";
     private String templateDirectory = "templates";
+    private String spreadsheetId = "1E7ps-euW93GN4f5L61rOQAuK6RH8x69ZXAkD2i0VDS0";
 
     /**
      * Creates an authorized Credential object.
@@ -129,7 +130,12 @@ public class MainProcessor {
 
         // Build a new authorized API client service.
         final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
-        final String spreadsheetId = "1E7ps-euW93GN4f5L61rOQAuK6RH8x69ZXAkD2i0VDS0";
+
+        //Allow the spreadshetId to be changed
+        if (cmd.hasOption("spid"))
+        {
+            spreadsheetId = cmd.getOptionValue("spid", spreadsheetId);
+        }
 
         final String range = "Main!A1:ZZ";
         final String typeRange = "TypeMapping!A1:B";
@@ -187,50 +193,142 @@ public class MainProcessor {
                 filter(values,"Id", filterId);
             }
 
+
             Iterator<List<Object>> itr = values.iterator();
             List<Object> row = itr.next();
             size = row.size();
             String[] variables  = new String[size];
 
-            //Set up Variables Name to Row
+            //Set up Variables Name to Row - Using the header row
             for (int a = 0; a < size; a++) {
                 variables[a] = (String) row.get(a);
             }
 
+            int processCnt = 0;
 
-            int processCnt=0;
-            while (itr.hasNext()) {
-                row = itr.next();
-                //The First Row is the variable names
-                //Create a context for just this row, we should inherit the globalContext
-                VelocityContext context = new VelocityContext(globalContext);
-                //Fill in the variables based on what is in the row
-                for (int a = 0; a < size; a++) {
-                    String value = null;
-                    //Protect against short rows
-                    if (a < row.size()) {
-                        value = this.processCellData((String) row.get(a));
+            if (!cmd.hasOption("b")) {
+                //We are outputting separate files
 
+                while (itr.hasNext()) {
+                    row = itr.next();
+                    //The First Row is the variable names
+                    //Create a context for just this row, we should inherit the globalContext
+                    VelocityContext context = new VelocityContext(globalContext);
+                    //Fill in the variables based on what is in the row
+                    for (int a = 0; a < size; a++) {
+                        String value = null;
+                        //Protect against short rows
+                        if (a < row.size()) {
+                            value = this.processCellData((String) row.get(a));
+
+                        }
+
+                        if (value != null) {
+                            context.put(variables[a], value);
+                        }
                     }
-
-                    if (value != null) {
-                        context.put(variables[a], value);
+                    String id = (String) context.get("Id");
+                    String type = (String) context.get("Type");
+                    //We will skip unknown types
+                    if (typeMapping.containsKey(type)) {
+                        this.generateSingleOutput(context, type, typeMapping.get(type), id);
+                        processCnt++;
+                    } else {
+                        output.println(String.format("Type %s not processed since no mapping is defined to a template for it", type));
                     }
                 }
-                String id = (String) context.get("Id");
-                String type = (String) context.get("Type");
-                //We will skip unknown types
-                if (typeMapping.containsKey(type)) {
-                    this.generateOutput(context, type, typeMapping.get(type), id);
-                    processCnt++;
-                } else {
-                    output.println(String.format("Type %s not processed since no mapping is defined to a template for it", type));
+            }
+            else
+            {
+                //We are outputting a bundle file
+                StringBuffer resources = new StringBuffer();
+
+                String outputFullFileName = String.format("%s" + File.separator + "%s%s%s.xml", outputDirectory, prefix, getBundleFileName(cmd), suffix);
+                try {
+
+                    while (itr.hasNext()) {
+                        row = itr.next();
+                        //The First Row is the variable names
+                        //Create a context for just this row, we should inherit the globalContext
+                        VelocityContext context = new VelocityContext(globalContext);
+                        //Fill in the variables based on what is in the row
+                        for (int a = 0; a < size; a++) {
+                            String value = null;
+                            //Protect against short rows
+                            if (a < row.size()) {
+                                value = this.processCellData((String) row.get(a));
+
+                            }
+
+                            if (value != null) {
+                                context.put(variables[a], value);
+                            }
+                        }
+                        String id = (String) context.get("Id");
+                        String type = (String) context.get("Type");
+                        //We will skip unknown types
+                        if (typeMapping.containsKey(type)) {
+                            try {
+                                String resource = generateResource(context, type, typeMapping.get(type), outputFullFileName, id);
+                                processCnt++;
+                                resources.append(resource);
+                            }
+                            catch (ResourceNotFoundException rnfe) {
+                                // couldn't find the template
+                                output.printException(String.format("Unable to file template %s, error: %s", typeMapping.get(type), rnfe.getLocalizedMessage()));
+                                throw rnfe;
+                            } catch (ParseErrorException pee) {
+                                // syntax error: problem parsing the template
+                                output.printException(String.format("template %s, parse error: %s", typeMapping.get(type), pee.getLocalizedMessage()));
+                                output.printException(pee);
+                                throw pee;
+                            } catch (MethodInvocationException mie) {
+                                // something invoked in the template
+                                // threw an exception
+                                output.printException(mie);
+                                throw mie;
+                            } catch (Exception e) {
+                                output.printException(e);
+                                throw e;
+                            }
+                        } else {
+                            output.println(String.format("Type %s not processed since no mapping is defined to a template for it", type));
+                        }
+                    }
+
+                    StringWriter buffer = new StringWriter();
+                    writeBundleHeader(buffer, processCnt);
+                    buffer.write(resources.toString());
+                    writeBundleEnd(buffer);
+                    FileWriter file = new FileWriter(outputFullFileName);
+                    file.write(toPrettyString(buffer.toString(), 2));
+                    file.close();
+                }
+                catch (Exception e)
+                {
+                    output.printException(String.format("Exit with exception: %s", e.getLocalizedMessage()));
                 }
             }
             output.println(String.format("Finished: %s processed",numberAsEntry(processCnt)));
         }
+
+        //If we have hit any errors exit with a status code of 1
+        if (output.hasLoggedExceptions())
+        {
+            System.exit(1);
+        }
     }
 
+    private String getBundleFileName(CommandLine cmd)
+    {
+
+        if (cmd.getOptionValue("b")!=null)
+        {
+            return cmd.getOptionValue("b");
+        }
+
+        return "bundle";
+    }
     private void writeBundleHeader(StringWriter output, int size) throws IOException {
         output.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
         output.write( "<Bundle xmlns=\"http://hl7.org/fhir\">\n");
@@ -315,39 +413,42 @@ public class MainProcessor {
         return cell.isEmpty() ? null : cell;
     }
 
-
-    void generateOutput( VelocityContext context, String type, String templateName, String id) {
-
+    private String generateResource( VelocityContext context, String type, String templateName, String outputFullFileName, String id) throws ResourceNotFoundException,ParseErrorException,MethodInvocationException
+    {
         String templateFulllFileName = String.format("%s" + File.separator + "%s", templateDirectory, templateName);
-        String outputFullFileName = String.format("%s" + File.separator + "%s%s%s.xml", outputDirectory, prefix, id, suffix);
+        StringWriter resource = new StringWriter();
         if (output.isVerbose()) {
             output.vprintln(String.format("Generating %s: %s to %s", type, id, outputFullFileName));
         }
+
         Template template;
-        try {
             template = Velocity.getTemplate(templateFulllFileName);
-            //StringWriter sw = new StringWriter();
+            template.merge(context, resource);
+
+        return resource.toString();
+    }
+
+    private void generateSingleOutput( VelocityContext context, String type, String templateName, String id) {
+
+        String outputFullFileName = String.format("%s" + File.separator + "%s%s%s.xml", outputDirectory, prefix, id, suffix);
 
 
-            StringWriter resource = new StringWriter();
+        try {
+            String resource = generateResource(context, type, templateName, outputFullFileName, id);
             StringWriter buffer = new StringWriter();
             writeBundleHeader(buffer,1);
-            template.merge(context, resource);
-            buffer.write(resource.toString());
+            buffer.write(resource);
             writeBundleEnd(buffer);
             FileWriter file = new FileWriter(outputFullFileName);
             file.write(toPrettyString(buffer.toString(), 2));
             file.close();
 
-            //System.out.println(sw);
-
-
         } catch (ResourceNotFoundException rnfe) {
             // couldn't find the template
-            output.printException(String.format("Unable to file template %s", templateFulllFileName));
+            output.printException(String.format("Unable to file template %s, error: %s", templateName, rnfe.getLocalizedMessage()));
         } catch (ParseErrorException pee) {
             // syntax error: problem parsing the template
-            output.printException(String.format("template %s, parse error: %s", templateFulllFileName, pee.getLocalizedMessage()));
+            output.printException(String.format("template %s, parse error: %s", templateName, pee.getLocalizedMessage()));
             output.printException(pee);
         } catch (MethodInvocationException mie) {
             // something invoked in the template
@@ -356,7 +457,6 @@ public class MainProcessor {
         } catch (Exception e) {
             output.printException(e);
         }
-
 
     }
 
@@ -388,9 +488,11 @@ public class MainProcessor {
         Option type = Option.builder("t").argName("type").longOpt("type").hasArg().desc("the type of the items(s) to generate").build();
         Option td = Option.builder("td").argName("directory").longOpt("templates").hasArg().desc("the directory in which source templates are located").build();
         Option od = Option.builder("od").argName("directory").longOpt("output").hasArg().desc("the directory where generated output should be placed").build();
-        Option bundle = Option.builder("b").argName("filename").longOpt("bundle").hasArg().desc("create the output in a single bundle file").build();
+        Option bundle = Option.builder("b").argName("filename").optionalArg(true).longOpt("bundle").hasArg().desc("create the output in a single bundle file").build();
+        Option spid = Option.builder("spid").argName("googlesheetid").longOpt("spreadsheetid").hasArg().desc("a goodle sheet id to use as the source").build();
         options.addOption(help);
         options.addOption(bundle);
+        options.addOption(spid);
         options.addOption(silent);
         options.addOption(verbose);
         options.addOption(prefix);
