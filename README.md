@@ -12,16 +12,23 @@ This process drives of the spreadsheet at https://docs.google.com/spreadsheets/d
 ##Basic use
 ```
 usage: java -jar dist/IGResourceGenerator-1.0-RELEASE-all.jar
- -b, --bundle <filename>       create in a single bundle file 
- -h,--help                     print this help text
- -i,--id <id>                  the id of the items(s) to generate
- -od,--output <directory>      the directory where generated output should be placed
- -p,--prefix <prefix>          a prefix for the generated file
- -q,--quit                     runs with no normal output
- -s,--suffix <suffix>          a suffix for the generated file
- -t,--type <type>              the type of the items(s) to generate
- -td,--templates <directory>   the directory in which source templates are located
- -v,--verbose                  runs with verbose output
+ -b,--bundle <filename>                  create the output in a single
+                                         bundle file
+ -h,--help                               print this help text
+ -i,--id <id>                            the id of the items(s) to
+                                         generate
+ -od,--output <directory>                the directory where generated
+                                         output should be placed
+ -p,--prefix <prefix>                    a prefix for the generated file
+ -q,--quit                               runs with no normal output
+ -s,--suffix <suffix>                    a suffix for the generated file
+ -spid,--spreadsheetid <googlesheetid>   a goodle sheet id to use as the
+                                         source
+ -t,--type <type>                        the type of the items(s) to
+                                         generate
+ -td,--templates <directory>             the directory in which source
+                                         templates are located
+ -v,--verbose                            runs with verbose output
 ```
 
 The first time the application is run a web browser should launch and generate authentication information for access to the spreadsheet.
