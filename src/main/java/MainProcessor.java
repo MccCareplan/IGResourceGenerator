@@ -50,6 +50,15 @@ import java.util.Iterator;
 
 import java.text.SimpleDateFormat;
 
+/*
+ Possible enhancement
+  -c option for consolidate output
+  -hd <template> for Header used for Bundle started
+  -ft <template> for footor user for footer
+  -pp <type> for pretty print (xml, json etc)
+  -fhir <type> (fhir+xml, fhir+json, json, xml etc) - A helper that defaults header,footer, pp
+ */
+
 public class MainProcessor {
     private static final String APPLICATION_NAME = "HL7 MCC IG Generator";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
@@ -73,6 +82,8 @@ public class MainProcessor {
     private String outputDirectory = "output";
     private String templateDirectory = "templates";
     private String spreadsheetId = "1E7ps-euW93GN4f5L61rOQAuK6RH8x69ZXAkD2i0VDS0";
+    private String headerTemplateFullFileName = "templates/FHIR_XML_BUNDLE_START.vm";
+    private String footerTemplateFullFileName = "templates/FHIR_XML_BUNDLE_END.vm";
 
     /**
      * Creates an authorized Credential object.
@@ -337,6 +348,13 @@ public class MainProcessor {
         String total = String.format("<total value=\"%s\"/>\n", Integer.toString(size));
         output.write(total);
 
+        /*
+        Template template;
+        context.put("GenEntries",Integer.toString(size));
+        template = Velocity.getTemplate(headerTemplateFullFileName);
+        template.merge(context, resource);
+
+         */
     }
 
     private void writeBundleEnd(StringWriter output) throws IOException {
@@ -420,7 +438,6 @@ public class MainProcessor {
         if (output.isVerbose()) {
             output.vprintln(String.format("Generating %s: %s to %s", type, id, outputFullFileName));
         }
-
         Template template;
             template = Velocity.getTemplate(templateFulllFileName);
             template.merge(context, resource);

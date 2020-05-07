@@ -2,10 +2,10 @@
   <type value="transaction"/>
   <total value="1"/>
   <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/AnemiaConditions"/>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/ArthritisDisorders"/>
     <resource>
       <StructureDefinition>
-        <id value="AnemiaConditions"/>
+        <id value="ArthritisDisorders"/>
         <meta>
           <versionId value="10"/>
           <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
@@ -26,14 +26,14 @@
           <!-- Profile Note - Not sure if we will use this -->
           <valueMarkdown value=""/>
         </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/AnemiaConditions"/>
-        <name value="AnemiaConditions"/>
-        <title value="Anemia Conditions"/>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/ArthritisDisorders"/>
+        <name value="ArthritisDisorders"/>
+        <title value="Arthritis Disorders"/>
         <status value="draft"/>
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch anemia conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to an anemia condition value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="Test Purpose 2"/>
+        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch arthritis disorders disorders associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to an arthritis disorders value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -49,13 +49,13 @@
           </element>
           <element id="Condition.code">
             <path value="Condition.code"/>
-            <label value="Test Label 2"/>
+            <label value="$Label"/>
             <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Anemia Conditions"/>
+            <short value="Arthritis Disorders"/>
             <binding>
               <!-- All of our value sets will be required -->
               <strength value="required"/>
-              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.53/expansion"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.81/expansion"/>
             </binding>
           </element>
           <!-- We will make Condition.onset "Must Support" in all conditions -->
@@ -74,7 +74,7 @@
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="StructureDefinition/AnemiaConditions"/>
+      <url value="StructureDefinition/ArthritisDisorders"/>
     </request>
   </entry>
 </Bundle>

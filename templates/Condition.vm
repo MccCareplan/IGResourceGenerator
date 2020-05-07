@@ -6,7 +6,6 @@
 <StructureDefinition
         xmlns="http://hl7.org/fhir">
     <id value="$Id"/>
-    <!-- [Sean]Assume this metadata is system generated (We will make all "everyone") -->
     <meta>
     <versionId value="10"/>
     <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
@@ -21,22 +20,20 @@
     </security>
     </meta>
     <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-        <valueMarkdown value="$ProfileIntro"/>
+        <valueMarkdown value=""/>
     </extension>
     <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
         <!-- Profile Note - Not sure if we will use this -->
-        <valueMarkdown value="This is the note field"/>
+        <valueMarkdown value=""/>
     </extension>
     <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/$Id"/>
     <name value="$Name"/>
     <title value="$Title"/>
-    <!-- [Sean]This will all start as draft - I'm not sure of the rules around template status -->
     <status value="draft"/>
     <date value="$GenDate"/>
     <publisher value="Patient Care Work Group"/>
     <description value="$Description"/>
     <purpose value="$Purpose"/>
-    <!-- [Sean] Do we leave this blanks if there is no copywright or is this later populated with HL7 after published after ballotting?? -->
     <copyright value="This is for copyright"/>
     <fhirVersion value="4.0.1"/>
     <kind value="resource"/>
@@ -61,7 +58,7 @@
                 #if ($ValueSetURL)
                     <valueSet value="$ValueSetURL"/>
                 #else
-                    <valueSet value="https://vsac.nlm.nih.gov/valueset/$ValueSetOID/expansion/Latest"/>
+                    <valueSet value="https://vsac.nlm.nih.gov/valueset/$ValueSetOID/expansion"/>
                 #end
             </binding>
         </element>

@@ -1,0 +1,6 @@
+## Start of a FHIR XML Bundle
+<?xml version="1.0" encoding="UTF-8"?>
+<Bundle xmlns="http://hl7.org/fhir">
+    <type value="transaction"/>
+    ## The Variable GenEntries should be defined by the time the header is called
+    <total value="$GenEntries"/>
