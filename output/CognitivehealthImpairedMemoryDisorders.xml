@@ -28,7 +28,7 @@
         </extension>
         <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/CognitivehealthImpairedMemoryDisorders"/>
         <name value="CognitivehealthImpairedMemoryDisorders"/>
-        <title value="Cognitive health and Impaired Memory Disorders"/>
+        <title value="Cognitive health and Impaired Memory Conditions"/>
         <status value="draft"/>
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>

@@ -51,7 +51,7 @@
             <path value="Condition.code"/>
             <label value="$Label"/>
             <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Diabetic Retinopathy Conditons"/>
+            <short value="Diabetic Retinopathy Conditions"/>
             <binding>
               <!-- All of our value sets will be required -->
               <strength value="required"/>

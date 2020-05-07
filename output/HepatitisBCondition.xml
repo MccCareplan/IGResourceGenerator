@@ -28,7 +28,7 @@
         </extension>
         <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/HepatitisBCondition"/>
         <name value="HepatitisBCondition"/>
-        <title value="Hepatitis B Condition"/>
+        <title value="Hepatitis B Conditions"/>
         <status value="draft"/>
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
@@ -51,7 +51,7 @@
             <path value="Condition.code"/>
             <label value="$Label"/>
             <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Hepatitis B Condition"/>
+            <short value="Hepatitis B Conditions"/>
             <binding>
               <!-- All of our value sets will be required -->
               <strength value="required"/>

@@ -28,7 +28,7 @@
         </extension>
         <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/ChronicKidneyDiseaseTypeorCause"/>
         <name value="ChronicKidneyDiseaseTypeorCause"/>
-        <title value="Chronic Kidney Disease Type or Cause"/>
+        <title value="Chronic Kidney Conditions Type or Cause"/>
         <status value="draft"/>
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>

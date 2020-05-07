@@ -28,7 +28,7 @@
         </extension>
         <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/HumanImmunodeficiencyVirusHIVDisease"/>
         <name value="HumanImmunodeficiencyVirusHIVDisease"/>
-        <title value="Human Immunodeficiency Virus (HIV) Disease"/>
+        <title value="Human Immunodeficiency Virus (HIV) Conditions"/>
         <status value="draft"/>
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>

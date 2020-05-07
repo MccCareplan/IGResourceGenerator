@@ -28,7 +28,7 @@
         </extension>
         <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/EndStageRenalDiseaseConditions"/>
         <name value="EndStageRenalDiseaseConditions"/>
-        <title value="End Stage Renal Disease Conditions"/>
+        <title value="End Stage Renal Conditions Conditions"/>
         <status value="draft"/>
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>

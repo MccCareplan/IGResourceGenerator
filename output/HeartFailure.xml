@@ -28,7 +28,7 @@
         </extension>
         <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/HeartFailure"/>
         <name value="HeartFailure"/>
-        <title value="Heart Failure"/>
+        <title value="Heart Failure Conditions"/>
         <status value="draft"/>
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>

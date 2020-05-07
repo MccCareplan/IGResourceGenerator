@@ -2,614 +2,6 @@
   <type value="transaction"/>
   <total value="43"/>
   <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/AnemiaConditions"/>
-    <resource>
-      <StructureDefinition>
-        <id value="AnemiaConditions"/>
-        <meta>
-          <versionId value="10"/>
-          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
-          <source value="#4L1SrkuMARIAi7Kg"/>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^write"/>
-          </security>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^read"/>
-          </security>
-        </meta>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-          <valueMarkdown value=""/>
-        </extension>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
-          <!-- Profile Note - Not sure if we will use this -->
-          <valueMarkdown value=""/>
-        </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/AnemiaConditions"/>
-        <name value="AnemiaConditions"/>
-        <title value="Anemia Conditions"/>
-        <status value="draft"/>
-        <date value="2020-05-07"/>
-        <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch anemia conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to an anemia condition value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="Test Purpose 2"/>
-        <copyright value="This is for copyright"/>
-        <fhirVersion value="4.0.1"/>
-        <kind value="resource"/>
-        <abstract value="false"/>
-        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
-        <type value="Condition"/>
-        <!-- All of our Conditions will be US Core  -->
-        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
-        <derivation value="constraint"/>
-        <differential>
-          <element id="Condition">
-            <path value="Condition"/>
-          </element>
-          <element id="Condition.code">
-            <path value="Condition.code"/>
-            <label value="Test Label 2"/>
-            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Anemia Conditions"/>
-            <binding>
-              <!-- All of our value sets will be required -->
-              <strength value="required"/>
-              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.53/expansion"/>
-            </binding>
-          </element>
-          <!-- We will make Condition.onset "Must Support" in all conditions -->
-          <element id="Condition.onset[x]">
-            <path value="Condition.onset[x]"/>
-            <mustSupport value="true"/>
-          </element>
-          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
-          <element id="Condition.recordedDate">
-            <path value="Condition.recordedDate"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-          </element>
-        </differential>
-      </StructureDefinition>
-    </resource>
-    <request>
-      <method value="PUT"/>
-      <url value="StructureDefinition/AnemiaConditions"/>
-    </request>
-  </entry>
-  <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/ChronicKidneyDisease"/>
-    <resource>
-      <StructureDefinition>
-        <id value="ChronicKidneyDisease"/>
-        <meta>
-          <versionId value="10"/>
-          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
-          <source value="#4L1SrkuMARIAi7Kg"/>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^write"/>
-          </security>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^read"/>
-          </security>
-        </meta>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-          <valueMarkdown value=""/>
-        </extension>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
-          <!-- Profile Note - Not sure if we will use this -->
-          <valueMarkdown value=""/>
-        </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/ChronicKidneyDisease"/>
-        <name value="ChronicKidneyDiseaseCondition"/>
-        <title value="Chronic Kidney Disease Condition"/>
-        <status value="draft"/>
-        <date value="2020-05-07"/>
-        <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch patients who have a chronic kidney disease condition. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a chronic kidney disease value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="Test Purpose"/>
-        <copyright value="This is for copyright"/>
-        <fhirVersion value="4.0.1"/>
-        <kind value="resource"/>
-        <abstract value="false"/>
-        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
-        <type value="Condition"/>
-        <!-- All of our Conditions will be US Core  -->
-        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
-        <derivation value="constraint"/>
-        <differential>
-          <element id="Condition">
-            <path value="Condition"/>
-          </element>
-          <element id="Condition.code">
-            <path value="Condition.code"/>
-            <label value="Test Label"/>
-            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Chronic Kidney Disease All Stages (1 through 5)"/>
-            <binding>
-              <!-- All of our value sets will be required -->
-              <strength value="required"/>
-              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.159/expansion"/>
-            </binding>
-          </element>
-          <!-- We will make Condition.onset "Must Support" in all conditions -->
-          <element id="Condition.onset[x]">
-            <path value="Condition.onset[x]"/>
-            <mustSupport value="true"/>
-          </element>
-          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
-          <element id="Condition.recordedDate">
-            <path value="Condition.recordedDate"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-          </element>
-        </differential>
-      </StructureDefinition>
-    </resource>
-    <request>
-      <method value="PUT"/>
-      <url value="StructureDefinition/ChronicKidneyDisease"/>
-    </request>
-  </entry>
-  <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/CognitivehealthImpairedMemoryDisorders"/>
-    <resource>
-      <StructureDefinition>
-        <id value="CognitivehealthImpairedMemoryDisorders"/>
-        <meta>
-          <versionId value="10"/>
-          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
-          <source value="#4L1SrkuMARIAi7Kg"/>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^write"/>
-          </security>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^read"/>
-          </security>
-        </meta>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-          <valueMarkdown value=""/>
-        </extension>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
-          <!-- Profile Note - Not sure if we will use this -->
-          <valueMarkdown value=""/>
-        </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/CognitivehealthImpairedMemoryDisorders"/>
-        <name value="CognitivehealthImpairedMemoryDisorders"/>
-        <title value="Cognitive health and Impaired Memory Disorders"/>
-        <status value="draft"/>
-        <date value="2020-05-07"/>
-        <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch cognitive health and impaired memory disorder conditions associated with a patient. These conditions may be derived from assessment scales or questionnaires. The intent of this profile is only to represent the problem, condition or health concern itself and not an assessment scale or questionnaire. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a cognitive health and impaired memory disorder conditions value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
-        <copyright value="This is for copyright"/>
-        <fhirVersion value="4.0.1"/>
-        <kind value="resource"/>
-        <abstract value="false"/>
-        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
-        <type value="Condition"/>
-        <!-- All of our Conditions will be US Core  -->
-        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
-        <derivation value="constraint"/>
-        <differential>
-          <element id="Condition">
-            <path value="Condition"/>
-          </element>
-          <element id="Condition.code">
-            <path value="Condition.code"/>
-            <label value="$Label"/>
-            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Cognitive Health and Impaired Memory Disorders"/>
-            <binding>
-              <!-- All of our value sets will be required -->
-              <strength value="required"/>
-              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.40/expansion"/>
-            </binding>
-          </element>
-          <!-- We will make Condition.onset "Must Support" in all conditions -->
-          <element id="Condition.onset[x]">
-            <path value="Condition.onset[x]"/>
-            <mustSupport value="true"/>
-          </element>
-          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
-          <element id="Condition.recordedDate">
-            <path value="Condition.recordedDate"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-          </element>
-        </differential>
-      </StructureDefinition>
-    </resource>
-    <request>
-      <method value="PUT"/>
-      <url value="StructureDefinition/CognitivehealthImpairedMemoryDisorders"/>
-    </request>
-  </entry>
-  <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/EndStageRenalDiseaseConditions"/>
-    <resource>
-      <StructureDefinition>
-        <id value="EndStageRenalDiseaseConditions"/>
-        <meta>
-          <versionId value="10"/>
-          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
-          <source value="#4L1SrkuMARIAi7Kg"/>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^write"/>
-          </security>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^read"/>
-          </security>
-        </meta>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-          <valueMarkdown value=""/>
-        </extension>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
-          <!-- Profile Note - Not sure if we will use this -->
-          <valueMarkdown value=""/>
-        </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/EndStageRenalDiseaseConditions"/>
-        <name value="EndStageRenalDiseaseConditions"/>
-        <title value="End Stage Renal Disease Conditions"/>
-        <status value="draft"/>
-        <date value="2020-05-07"/>
-        <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch end stage renal disease conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to an end stage renal disease conditions value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
-        <copyright value="This is for copyright"/>
-        <fhirVersion value="4.0.1"/>
-        <kind value="resource"/>
-        <abstract value="false"/>
-        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
-        <type value="Condition"/>
-        <!-- All of our Conditions will be US Core  -->
-        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
-        <derivation value="constraint"/>
-        <differential>
-          <element id="Condition">
-            <path value="Condition"/>
-          </element>
-          <element id="Condition.code">
-            <path value="Condition.code"/>
-            <label value="$Label"/>
-            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="End Stage Renal Disease Conditions"/>
-            <binding>
-              <!-- All of our value sets will be required -->
-              <strength value="required"/>
-              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.15/expansion"/>
-            </binding>
-          </element>
-          <!-- We will make Condition.onset "Must Support" in all conditions -->
-          <element id="Condition.onset[x]">
-            <path value="Condition.onset[x]"/>
-            <mustSupport value="true"/>
-          </element>
-          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
-          <element id="Condition.recordedDate">
-            <path value="Condition.recordedDate"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-          </element>
-        </differential>
-      </StructureDefinition>
-    </resource>
-    <request>
-      <method value="PUT"/>
-      <url value="StructureDefinition/EndStageRenalDiseaseConditions"/>
-    </request>
-  </entry>
-  <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/HyperkalemiaConditions"/>
-    <resource>
-      <StructureDefinition>
-        <id value="HyperkalemiaConditions"/>
-        <meta>
-          <versionId value="10"/>
-          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
-          <source value="#4L1SrkuMARIAi7Kg"/>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^write"/>
-          </security>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^read"/>
-          </security>
-        </meta>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-          <valueMarkdown value=""/>
-        </extension>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
-          <!-- Profile Note - Not sure if we will use this -->
-          <valueMarkdown value=""/>
-        </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/HyperkalemiaConditions"/>
-        <name value="HyperkalemiaConditions"/>
-        <title value="Hyperkalemia Conditions"/>
-        <status value="draft"/>
-        <date value="2020-05-07"/>
-        <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch hyperkalemia conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to an anemia hyperkalemia value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
-        <copyright value="This is for copyright"/>
-        <fhirVersion value="4.0.1"/>
-        <kind value="resource"/>
-        <abstract value="false"/>
-        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
-        <type value="Condition"/>
-        <!-- All of our Conditions will be US Core  -->
-        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
-        <derivation value="constraint"/>
-        <differential>
-          <element id="Condition">
-            <path value="Condition"/>
-          </element>
-          <element id="Condition.code">
-            <path value="Condition.code"/>
-            <label value="$Label"/>
-            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Hyperkalemia Conditions"/>
-            <binding>
-              <!-- All of our value sets will be required -->
-              <strength value="required"/>
-              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.50/expansion"/>
-            </binding>
-          </element>
-          <!-- We will make Condition.onset "Must Support" in all conditions -->
-          <element id="Condition.onset[x]">
-            <path value="Condition.onset[x]"/>
-            <mustSupport value="true"/>
-          </element>
-          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
-          <element id="Condition.recordedDate">
-            <path value="Condition.recordedDate"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-          </element>
-        </differential>
-      </StructureDefinition>
-    </resource>
-    <request>
-      <method value="PUT"/>
-      <url value="StructureDefinition/HyperkalemiaConditions"/>
-    </request>
-  </entry>
-  <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/HypoalbuminemiaConditions"/>
-    <resource>
-      <StructureDefinition>
-        <id value="HypoalbuminemiaConditions"/>
-        <meta>
-          <versionId value="10"/>
-          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
-          <source value="#4L1SrkuMARIAi7Kg"/>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^write"/>
-          </security>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^read"/>
-          </security>
-        </meta>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-          <valueMarkdown value=""/>
-        </extension>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
-          <!-- Profile Note - Not sure if we will use this -->
-          <valueMarkdown value=""/>
-        </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/HypoalbuminemiaConditions"/>
-        <name value="HypoalbuminemiaConditions"/>
-        <title value="Hypoalbuminemia Conditions"/>
-        <status value="draft"/>
-        <date value="2020-05-07"/>
-        <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch hypoalbuminemia conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a hypoalbuminemia  condition value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
-        <copyright value="This is for copyright"/>
-        <fhirVersion value="4.0.1"/>
-        <kind value="resource"/>
-        <abstract value="false"/>
-        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
-        <type value="Condition"/>
-        <!-- All of our Conditions will be US Core  -->
-        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
-        <derivation value="constraint"/>
-        <differential>
-          <element id="Condition">
-            <path value="Condition"/>
-          </element>
-          <element id="Condition.code">
-            <path value="Condition.code"/>
-            <label value="$Label"/>
-            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Hypoalbuminemia Conditions"/>
-            <binding>
-              <!-- All of our value sets will be required -->
-              <strength value="required"/>
-              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.47/expansion"/>
-            </binding>
-          </element>
-          <!-- We will make Condition.onset "Must Support" in all conditions -->
-          <element id="Condition.onset[x]">
-            <path value="Condition.onset[x]"/>
-            <mustSupport value="true"/>
-          </element>
-          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
-          <element id="Condition.recordedDate">
-            <path value="Condition.recordedDate"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-          </element>
-        </differential>
-      </StructureDefinition>
-    </resource>
-    <request>
-      <method value="PUT"/>
-      <url value="StructureDefinition/HypoalbuminemiaConditions"/>
-    </request>
-  </entry>
-  <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/ObesityConditions"/>
-    <resource>
-      <StructureDefinition>
-        <id value="ObesityConditions"/>
-        <meta>
-          <versionId value="10"/>
-          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
-          <source value="#4L1SrkuMARIAi7Kg"/>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^write"/>
-          </security>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^read"/>
-          </security>
-        </meta>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-          <valueMarkdown value=""/>
-        </extension>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
-          <!-- Profile Note - Not sure if we will use this -->
-          <valueMarkdown value=""/>
-        </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/ObesityConditions"/>
-        <name value="ObesityConditions"/>
-        <title value="Obesity Conditions"/>
-        <status value="draft"/>
-        <date value="2020-05-07"/>
-        <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch obesity conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to an obesity conditions value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
-        <copyright value="This is for copyright"/>
-        <fhirVersion value="4.0.1"/>
-        <kind value="resource"/>
-        <abstract value="false"/>
-        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
-        <type value="Condition"/>
-        <!-- All of our Conditions will be US Core  -->
-        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
-        <derivation value="constraint"/>
-        <differential>
-          <element id="Condition">
-            <path value="Condition"/>
-          </element>
-          <element id="Condition.code">
-            <path value="Condition.code"/>
-            <label value="$Label"/>
-            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Obesity Conditions"/>
-            <binding>
-              <!-- All of our value sets will be required -->
-              <strength value="required"/>
-              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.36/expansion"/>
-            </binding>
-          </element>
-          <!-- We will make Condition.onset "Must Support" in all conditions -->
-          <element id="Condition.onset[x]">
-            <path value="Condition.onset[x]"/>
-            <mustSupport value="true"/>
-          </element>
-          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
-          <element id="Condition.recordedDate">
-            <path value="Condition.recordedDate"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-          </element>
-        </differential>
-      </StructureDefinition>
-    </resource>
-    <request>
-      <method value="PUT"/>
-      <url value="StructureDefinition/ObesityConditions"/>
-    </request>
-  </entry>
-  <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/TuberculosisDisorders"/>
-    <resource>
-      <StructureDefinition>
-        <id value="TuberculosisDisorders"/>
-        <meta>
-          <versionId value="10"/>
-          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
-          <source value="#4L1SrkuMARIAi7Kg"/>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^write"/>
-          </security>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^read"/>
-          </security>
-        </meta>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-          <valueMarkdown value=""/>
-        </extension>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
-          <!-- Profile Note - Not sure if we will use this -->
-          <valueMarkdown value=""/>
-        </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/TuberculosisDisorders"/>
-        <name value="TuberculosisDisorders"/>
-        <title value="Tuberculosis Disorders"/>
-        <status value="draft"/>
-        <date value="2020-05-07"/>
-        <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch tuberculosis disorders associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a tuberculosis disorders value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
-        <copyright value="This is for copyright"/>
-        <fhirVersion value="4.0.1"/>
-        <kind value="resource"/>
-        <abstract value="false"/>
-        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
-        <type value="Condition"/>
-        <!-- All of our Conditions will be US Core  -->
-        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
-        <derivation value="constraint"/>
-        <differential>
-          <element id="Condition">
-            <path value="Condition"/>
-          </element>
-          <element id="Condition.code">
-            <path value="Condition.code"/>
-            <label value="$Label"/>
-            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Tuberculosis Disorders"/>
-            <binding>
-              <!-- All of our value sets will be required -->
-              <strength value="required"/>
-              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.43/expansion"/>
-            </binding>
-          </element>
-          <!-- We will make Condition.onset "Must Support" in all conditions -->
-          <element id="Condition.onset[x]">
-            <path value="Condition.onset[x]"/>
-            <mustSupport value="true"/>
-          </element>
-          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
-          <element id="Condition.recordedDate">
-            <path value="Condition.recordedDate"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-          </element>
-        </differential>
-      </StructureDefinition>
-    </resource>
-    <request>
-      <method value="PUT"/>
-      <url value="StructureDefinition/TuberculosisDisorders"/>
-    </request>
-  </entry>
-  <entry>
     <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/AlcoholAbuseDisorder"/>
     <resource>
       <StructureDefinition>
@@ -636,7 +28,7 @@
         </extension>
         <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/AlcoholAbuseDisorder"/>
         <name value="AlcoholAbuseDisorder"/>
-        <title value="Alcohol Abuse Disorders"/>
+        <title value="Alcohol Abuse Conditions"/>
         <status value="draft"/>
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
@@ -762,6 +154,158 @@
     </request>
   </entry>
   <entry>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/AnemiaConditions"/>
+    <resource>
+      <StructureDefinition>
+        <id value="AnemiaConditions"/>
+        <meta>
+          <versionId value="10"/>
+          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
+          <source value="#4L1SrkuMARIAi7Kg"/>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^write"/>
+          </security>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^read"/>
+          </security>
+        </meta>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value=""/>
+        </extension>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
+          <!-- Profile Note - Not sure if we will use this -->
+          <valueMarkdown value=""/>
+        </extension>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/AnemiaConditions"/>
+        <name value="AnemiaConditions"/>
+        <title value="Anemia Conditions"/>
+        <status value="draft"/>
+        <date value="2020-05-07"/>
+        <publisher value="Patient Care Work Group"/>
+        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch anemia conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to an anemia condition value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <purpose value="Test Purpose 2"/>
+        <copyright value="This is for copyright"/>
+        <fhirVersion value="4.0.1"/>
+        <kind value="resource"/>
+        <abstract value="false"/>
+        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
+        <type value="Condition"/>
+        <!-- All of our Conditions will be US Core  -->
+        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+        <derivation value="constraint"/>
+        <differential>
+          <element id="Condition">
+            <path value="Condition"/>
+          </element>
+          <element id="Condition.code">
+            <path value="Condition.code"/>
+            <label value="Test Label 2"/>
+            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
+            <short value="Anemia Conditions"/>
+            <binding>
+              <!-- All of our value sets will be required -->
+              <strength value="required"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.53/expansion"/>
+            </binding>
+          </element>
+          <!-- We will make Condition.onset "Must Support" in all conditions -->
+          <element id="Condition.onset[x]">
+            <path value="Condition.onset[x]"/>
+            <mustSupport value="true"/>
+          </element>
+          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
+          <element id="Condition.recordedDate">
+            <path value="Condition.recordedDate"/>
+            <min value="1"/>
+            <mustSupport value="true"/>
+          </element>
+        </differential>
+      </StructureDefinition>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="StructureDefinition/AnemiaConditions"/>
+    </request>
+  </entry>
+  <entry>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/AnxietyConditions"/>
+    <resource>
+      <StructureDefinition>
+        <id value="AnxietyConditions"/>
+        <meta>
+          <versionId value="10"/>
+          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
+          <source value="#4L1SrkuMARIAi7Kg"/>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^write"/>
+          </security>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^read"/>
+          </security>
+        </meta>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value=""/>
+        </extension>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
+          <!-- Profile Note - Not sure if we will use this -->
+          <valueMarkdown value=""/>
+        </extension>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/AnxietyConditions"/>
+        <name value="AnxietyConditions"/>
+        <title value="Anxiety Conditions"/>
+        <status value="draft"/>
+        <date value="2020-05-07"/>
+        <publisher value="Patient Care Work Group"/>
+        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing anxiety  conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to an anxiety condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <purpose value="$Purpose"/>
+        <copyright value="This is for copyright"/>
+        <fhirVersion value="4.0.1"/>
+        <kind value="resource"/>
+        <abstract value="false"/>
+        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
+        <type value="Condition"/>
+        <!-- All of our Conditions will be US Core  -->
+        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+        <derivation value="constraint"/>
+        <differential>
+          <element id="Condition">
+            <path value="Condition"/>
+          </element>
+          <element id="Condition.code">
+            <path value="Condition.code"/>
+            <label value="$Label"/>
+            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
+            <short value="Anxiety Conditions"/>
+            <binding>
+              <!-- All of our value sets will be required -->
+              <strength value="required"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.52/expansion"/>
+            </binding>
+          </element>
+          <!-- We will make Condition.onset "Must Support" in all conditions -->
+          <element id="Condition.onset[x]">
+            <path value="Condition.onset[x]"/>
+            <mustSupport value="true"/>
+          </element>
+          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
+          <element id="Condition.recordedDate">
+            <path value="Condition.recordedDate"/>
+            <min value="1"/>
+            <mustSupport value="true"/>
+          </element>
+        </differential>
+      </StructureDefinition>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="StructureDefinition/AnxietyConditions"/>
+    </request>
+  </entry>
+  <entry>
     <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/ArthritisDisorders"/>
     <resource>
       <StructureDefinition>
@@ -788,7 +332,7 @@
         </extension>
         <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/ArthritisDisorders"/>
         <name value="ArthritisDisorders"/>
-        <title value="Arthritis Disorders"/>
+        <title value="Arthritis Conditions"/>
         <status value="draft"/>
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
@@ -838,6 +382,158 @@
     </request>
   </entry>
   <entry>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/BipolarConditions"/>
+    <resource>
+      <StructureDefinition>
+        <id value="BipolarConditions"/>
+        <meta>
+          <versionId value="10"/>
+          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
+          <source value="#4L1SrkuMARIAi7Kg"/>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^write"/>
+          </security>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^read"/>
+          </security>
+        </meta>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value=""/>
+        </extension>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
+          <!-- Profile Note - Not sure if we will use this -->
+          <valueMarkdown value=""/>
+        </extension>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/BipolarConditions"/>
+        <name value="BipolarConditions"/>
+        <title value="Bipolar Conditions"/>
+        <status value="draft"/>
+        <date value="2020-05-07"/>
+        <publisher value="Patient Care Work Group"/>
+        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing bipolar  conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a bipolar condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <purpose value="$Purpose"/>
+        <copyright value="This is for copyright"/>
+        <fhirVersion value="4.0.1"/>
+        <kind value="resource"/>
+        <abstract value="false"/>
+        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
+        <type value="Condition"/>
+        <!-- All of our Conditions will be US Core  -->
+        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+        <derivation value="constraint"/>
+        <differential>
+          <element id="Condition">
+            <path value="Condition"/>
+          </element>
+          <element id="Condition.code">
+            <path value="Condition.code"/>
+            <label value="$Label"/>
+            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
+            <short value="Bipolar Conditions"/>
+            <binding>
+              <!-- All of our value sets will be required -->
+              <strength value="required"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.600.450/expansion"/>
+            </binding>
+          </element>
+          <!-- We will make Condition.onset "Must Support" in all conditions -->
+          <element id="Condition.onset[x]">
+            <path value="Condition.onset[x]"/>
+            <mustSupport value="true"/>
+          </element>
+          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
+          <element id="Condition.recordedDate">
+            <path value="Condition.recordedDate"/>
+            <min value="1"/>
+            <mustSupport value="true"/>
+          </element>
+        </differential>
+      </StructureDefinition>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="StructureDefinition/BipolarConditions"/>
+    </request>
+  </entry>
+  <entry>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/ChronicKidneyDisease"/>
+    <resource>
+      <StructureDefinition>
+        <id value="ChronicKidneyDisease"/>
+        <meta>
+          <versionId value="10"/>
+          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
+          <source value="#4L1SrkuMARIAi7Kg"/>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^write"/>
+          </security>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^read"/>
+          </security>
+        </meta>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value=""/>
+        </extension>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
+          <!-- Profile Note - Not sure if we will use this -->
+          <valueMarkdown value=""/>
+        </extension>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/ChronicKidneyDisease"/>
+        <name value="ChronicKidneyDiseaseCondition"/>
+        <title value="Chronic Kidney Disease Conditions"/>
+        <status value="draft"/>
+        <date value="2020-05-07"/>
+        <publisher value="Patient Care Work Group"/>
+        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch patients who have a chronic kidney disease condition. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a chronic kidney disease value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <purpose value="Test Purpose"/>
+        <copyright value="This is for copyright"/>
+        <fhirVersion value="4.0.1"/>
+        <kind value="resource"/>
+        <abstract value="false"/>
+        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
+        <type value="Condition"/>
+        <!-- All of our Conditions will be US Core  -->
+        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+        <derivation value="constraint"/>
+        <differential>
+          <element id="Condition">
+            <path value="Condition"/>
+          </element>
+          <element id="Condition.code">
+            <path value="Condition.code"/>
+            <label value="Test Label"/>
+            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
+            <short value="Chronic Kidney Disease All Stages (1 through 5)"/>
+            <binding>
+              <!-- All of our value sets will be required -->
+              <strength value="required"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.159/expansion"/>
+            </binding>
+          </element>
+          <!-- We will make Condition.onset "Must Support" in all conditions -->
+          <element id="Condition.onset[x]">
+            <path value="Condition.onset[x]"/>
+            <mustSupport value="true"/>
+          </element>
+          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
+          <element id="Condition.recordedDate">
+            <path value="Condition.recordedDate"/>
+            <min value="1"/>
+            <mustSupport value="true"/>
+          </element>
+        </differential>
+      </StructureDefinition>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="StructureDefinition/ChronicKidneyDisease"/>
+    </request>
+  </entry>
+  <entry>
     <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/ChronicKidneyDiseaseTypeorCause"/>
     <resource>
       <StructureDefinition>
@@ -864,7 +560,7 @@
         </extension>
         <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/ChronicKidneyDiseaseTypeorCause"/>
         <name value="ChronicKidneyDiseaseTypeorCause"/>
-        <title value="Chronic Kidney Disease Type or Cause"/>
+        <title value="Chronic Kidney Conditions Type or Cause"/>
         <status value="draft"/>
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
@@ -990,6 +686,158 @@
     </request>
   </entry>
   <entry>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/CognitivehealthImpairedMemoryDisorders"/>
+    <resource>
+      <StructureDefinition>
+        <id value="CognitivehealthImpairedMemoryDisorders"/>
+        <meta>
+          <versionId value="10"/>
+          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
+          <source value="#4L1SrkuMARIAi7Kg"/>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^write"/>
+          </security>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^read"/>
+          </security>
+        </meta>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value=""/>
+        </extension>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
+          <!-- Profile Note - Not sure if we will use this -->
+          <valueMarkdown value=""/>
+        </extension>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/CognitivehealthImpairedMemoryDisorders"/>
+        <name value="CognitivehealthImpairedMemoryDisorders"/>
+        <title value="Cognitive health and Impaired Memory Conditions"/>
+        <status value="draft"/>
+        <date value="2020-05-07"/>
+        <publisher value="Patient Care Work Group"/>
+        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch cognitive health and impaired memory disorder conditions associated with a patient. These conditions may be derived from assessment scales or questionnaires. The intent of this profile is only to represent the problem, condition or health concern itself and not an assessment scale or questionnaire. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a cognitive health and impaired memory disorder conditions value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <purpose value="$Purpose"/>
+        <copyright value="This is for copyright"/>
+        <fhirVersion value="4.0.1"/>
+        <kind value="resource"/>
+        <abstract value="false"/>
+        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
+        <type value="Condition"/>
+        <!-- All of our Conditions will be US Core  -->
+        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+        <derivation value="constraint"/>
+        <differential>
+          <element id="Condition">
+            <path value="Condition"/>
+          </element>
+          <element id="Condition.code">
+            <path value="Condition.code"/>
+            <label value="$Label"/>
+            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
+            <short value="Cognitive Health and Impaired Memory Disorders"/>
+            <binding>
+              <!-- All of our value sets will be required -->
+              <strength value="required"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.40/expansion"/>
+            </binding>
+          </element>
+          <!-- We will make Condition.onset "Must Support" in all conditions -->
+          <element id="Condition.onset[x]">
+            <path value="Condition.onset[x]"/>
+            <mustSupport value="true"/>
+          </element>
+          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
+          <element id="Condition.recordedDate">
+            <path value="Condition.recordedDate"/>
+            <min value="1"/>
+            <mustSupport value="true"/>
+          </element>
+        </differential>
+      </StructureDefinition>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="StructureDefinition/CognitivehealthImpairedMemoryDisorders"/>
+    </request>
+  </entry>
+  <entry>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/CoronaryArteryDiseaseConditions"/>
+    <resource>
+      <StructureDefinition>
+        <id value="CoronaryArteryDiseaseConditions"/>
+        <meta>
+          <versionId value="10"/>
+          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
+          <source value="#4L1SrkuMARIAi7Kg"/>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^write"/>
+          </security>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^read"/>
+          </security>
+        </meta>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value=""/>
+        </extension>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
+          <!-- Profile Note - Not sure if we will use this -->
+          <valueMarkdown value=""/>
+        </extension>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/CoronaryArteryDiseaseConditions"/>
+        <name value="CoronaryArteryDiseaseConditions"/>
+        <title value="Coronary Artery Conditions Conditions"/>
+        <status value="draft"/>
+        <date value="2020-05-07"/>
+        <publisher value="Patient Care Work Group"/>
+        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing coronary artery disease conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a coronary artery disease condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <purpose value="$Purpose"/>
+        <copyright value="This is for copyright"/>
+        <fhirVersion value="4.0.1"/>
+        <kind value="resource"/>
+        <abstract value="false"/>
+        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
+        <type value="Condition"/>
+        <!-- All of our Conditions will be US Core  -->
+        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+        <derivation value="constraint"/>
+        <differential>
+          <element id="Condition">
+            <path value="Condition"/>
+          </element>
+          <element id="Condition.code">
+            <path value="Condition.code"/>
+            <label value="$Label"/>
+            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
+            <short value="Coronary Artery Disease Conditions"/>
+            <binding>
+              <!-- All of our value sets will be required -->
+              <strength value="required"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.526.3.369/expansion"/>
+            </binding>
+          </element>
+          <!-- We will make Condition.onset "Must Support" in all conditions -->
+          <element id="Condition.onset[x]">
+            <path value="Condition.onset[x]"/>
+            <mustSupport value="true"/>
+          </element>
+          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
+          <element id="Condition.recordedDate">
+            <path value="Condition.recordedDate"/>
+            <min value="1"/>
+            <mustSupport value="true"/>
+          </element>
+        </differential>
+      </StructureDefinition>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="StructureDefinition/CoronaryArteryDiseaseConditions"/>
+    </request>
+  </entry>
+  <entry>
     <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/DiabeticNeuropathyConditions"/>
     <resource>
       <StructureDefinition>
@@ -1063,6 +911,234 @@
     <request>
       <method value="PUT"/>
       <url value="StructureDefinition/DiabeticNeuropathyConditions"/>
+    </request>
+  </entry>
+  <entry>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/DiabeticRetinopathyConditons"/>
+    <resource>
+      <StructureDefinition>
+        <id value="DiabeticRetinopathyConditons"/>
+        <meta>
+          <versionId value="10"/>
+          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
+          <source value="#4L1SrkuMARIAi7Kg"/>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^write"/>
+          </security>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^read"/>
+          </security>
+        </meta>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value=""/>
+        </extension>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
+          <!-- Profile Note - Not sure if we will use this -->
+          <valueMarkdown value=""/>
+        </extension>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/DiabeticRetinopathyConditons"/>
+        <name value="DiabeticRetinopathyConditons"/>
+        <title value="Diabetic Retinopathy Conditons"/>
+        <status value="draft"/>
+        <date value="2020-05-07"/>
+        <publisher value="Patient Care Work Group"/>
+        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing diabetic retinopathy conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a diabetic retinopathy condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <purpose value="$Purpose"/>
+        <copyright value="This is for copyright"/>
+        <fhirVersion value="4.0.1"/>
+        <kind value="resource"/>
+        <abstract value="false"/>
+        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
+        <type value="Condition"/>
+        <!-- All of our Conditions will be US Core  -->
+        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+        <derivation value="constraint"/>
+        <differential>
+          <element id="Condition">
+            <path value="Condition"/>
+          </element>
+          <element id="Condition.code">
+            <path value="Condition.code"/>
+            <label value="$Label"/>
+            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
+            <short value="Diabetic Retinopathy Conditions"/>
+            <binding>
+              <!-- All of our value sets will be required -->
+              <strength value="required"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.526.3.327/expansion"/>
+            </binding>
+          </element>
+          <!-- We will make Condition.onset "Must Support" in all conditions -->
+          <element id="Condition.onset[x]">
+            <path value="Condition.onset[x]"/>
+            <mustSupport value="true"/>
+          </element>
+          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
+          <element id="Condition.recordedDate">
+            <path value="Condition.recordedDate"/>
+            <min value="1"/>
+            <mustSupport value="true"/>
+          </element>
+        </differential>
+      </StructureDefinition>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="StructureDefinition/DiabeticRetinopathyConditons"/>
+    </request>
+  </entry>
+  <entry>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/EndStageRenalDiseaseConditions"/>
+    <resource>
+      <StructureDefinition>
+        <id value="EndStageRenalDiseaseConditions"/>
+        <meta>
+          <versionId value="10"/>
+          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
+          <source value="#4L1SrkuMARIAi7Kg"/>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^write"/>
+          </security>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^read"/>
+          </security>
+        </meta>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value=""/>
+        </extension>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
+          <!-- Profile Note - Not sure if we will use this -->
+          <valueMarkdown value=""/>
+        </extension>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/EndStageRenalDiseaseConditions"/>
+        <name value="EndStageRenalDiseaseConditions"/>
+        <title value="End Stage Renal Conditions Conditions"/>
+        <status value="draft"/>
+        <date value="2020-05-07"/>
+        <publisher value="Patient Care Work Group"/>
+        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch end stage renal disease conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to an end stage renal disease conditions value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <purpose value="$Purpose"/>
+        <copyright value="This is for copyright"/>
+        <fhirVersion value="4.0.1"/>
+        <kind value="resource"/>
+        <abstract value="false"/>
+        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
+        <type value="Condition"/>
+        <!-- All of our Conditions will be US Core  -->
+        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+        <derivation value="constraint"/>
+        <differential>
+          <element id="Condition">
+            <path value="Condition"/>
+          </element>
+          <element id="Condition.code">
+            <path value="Condition.code"/>
+            <label value="$Label"/>
+            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
+            <short value="End Stage Renal Disease Conditions"/>
+            <binding>
+              <!-- All of our value sets will be required -->
+              <strength value="required"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.15/expansion"/>
+            </binding>
+          </element>
+          <!-- We will make Condition.onset "Must Support" in all conditions -->
+          <element id="Condition.onset[x]">
+            <path value="Condition.onset[x]"/>
+            <mustSupport value="true"/>
+          </element>
+          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
+          <element id="Condition.recordedDate">
+            <path value="Condition.recordedDate"/>
+            <min value="1"/>
+            <mustSupport value="true"/>
+          </element>
+        </differential>
+      </StructureDefinition>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="StructureDefinition/EndStageRenalDiseaseConditions"/>
+    </request>
+  </entry>
+  <entry>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/HeartFailure"/>
+    <resource>
+      <StructureDefinition>
+        <id value="HeartFailure"/>
+        <meta>
+          <versionId value="10"/>
+          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
+          <source value="#4L1SrkuMARIAi7Kg"/>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^write"/>
+          </security>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^read"/>
+          </security>
+        </meta>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value=""/>
+        </extension>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
+          <!-- Profile Note - Not sure if we will use this -->
+          <valueMarkdown value=""/>
+        </extension>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/HeartFailure"/>
+        <name value="HeartFailure"/>
+        <title value="Heart Failure Conditions"/>
+        <status value="draft"/>
+        <date value="2020-05-07"/>
+        <publisher value="Patient Care Work Group"/>
+        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing heart failure conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a heart failure condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <purpose value="$Purpose"/>
+        <copyright value="This is for copyright"/>
+        <fhirVersion value="4.0.1"/>
+        <kind value="resource"/>
+        <abstract value="false"/>
+        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
+        <type value="Condition"/>
+        <!-- All of our Conditions will be US Core  -->
+        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+        <derivation value="constraint"/>
+        <differential>
+          <element id="Condition">
+            <path value="Condition"/>
+          </element>
+          <element id="Condition.code">
+            <path value="Condition.code"/>
+            <label value="$Label"/>
+            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
+            <short value="Heart Failure"/>
+            <binding>
+              <!-- All of our value sets will be required -->
+              <strength value="required"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.526.3.376/expansion"/>
+            </binding>
+          </element>
+          <!-- We will make Condition.onset "Must Support" in all conditions -->
+          <element id="Condition.onset[x]">
+            <path value="Condition.onset[x]"/>
+            <mustSupport value="true"/>
+          </element>
+          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
+          <element id="Condition.recordedDate">
+            <path value="Condition.recordedDate"/>
+            <min value="1"/>
+            <mustSupport value="true"/>
+          </element>
+        </differential>
+      </StructureDefinition>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="StructureDefinition/HeartFailure"/>
     </request>
   </entry>
   <entry>
@@ -1142,6 +1218,82 @@
     </request>
   </entry>
   <entry>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/HepatitisBCondition"/>
+    <resource>
+      <StructureDefinition>
+        <id value="HepatitisBCondition"/>
+        <meta>
+          <versionId value="10"/>
+          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
+          <source value="#4L1SrkuMARIAi7Kg"/>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^write"/>
+          </security>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^read"/>
+          </security>
+        </meta>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value=""/>
+        </extension>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
+          <!-- Profile Note - Not sure if we will use this -->
+          <valueMarkdown value=""/>
+        </extension>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/HepatitisBCondition"/>
+        <name value="HepatitisBCondition"/>
+        <title value="Hepatitis B Conditions"/>
+        <status value="draft"/>
+        <date value="2020-05-07"/>
+        <publisher value="Patient Care Work Group"/>
+        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing hepatitis B conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a hepatitis B condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <purpose value="$Purpose"/>
+        <copyright value="This is for copyright"/>
+        <fhirVersion value="4.0.1"/>
+        <kind value="resource"/>
+        <abstract value="false"/>
+        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
+        <type value="Condition"/>
+        <!-- All of our Conditions will be US Core  -->
+        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+        <derivation value="constraint"/>
+        <differential>
+          <element id="Condition">
+            <path value="Condition"/>
+          </element>
+          <element id="Condition.code">
+            <path value="Condition.code"/>
+            <label value="$Label"/>
+            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
+            <short value="Hepatitis B Conditions"/>
+            <binding>
+              <!-- All of our value sets will be required -->
+              <strength value="required"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.67.1.101.1.269/expansion"/>
+            </binding>
+          </element>
+          <!-- We will make Condition.onset "Must Support" in all conditions -->
+          <element id="Condition.onset[x]">
+            <path value="Condition.onset[x]"/>
+            <mustSupport value="true"/>
+          </element>
+          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
+          <element id="Condition.recordedDate">
+            <path value="Condition.recordedDate"/>
+            <min value="1"/>
+            <mustSupport value="true"/>
+          </element>
+        </differential>
+      </StructureDefinition>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="StructureDefinition/HepatitisBCondition"/>
+    </request>
+  </entry>
+  <entry>
     <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/HepatitisCCondition"/>
     <resource>
       <StructureDefinition>
@@ -1215,6 +1367,82 @@
     <request>
       <method value="PUT"/>
       <url value="StructureDefinition/HepatitisCCondition"/>
+    </request>
+  </entry>
+  <entry>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/HumanImmunodeficiencyVirusHIVDisease"/>
+    <resource>
+      <StructureDefinition>
+        <id value="HumanImmunodeficiencyVirusHIVDisease"/>
+        <meta>
+          <versionId value="10"/>
+          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
+          <source value="#4L1SrkuMARIAi7Kg"/>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^write"/>
+          </security>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^read"/>
+          </security>
+        </meta>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value=""/>
+        </extension>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
+          <!-- Profile Note - Not sure if we will use this -->
+          <valueMarkdown value=""/>
+        </extension>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/HumanImmunodeficiencyVirusHIVDisease"/>
+        <name value="HumanImmunodeficiencyVirusHIVDisease"/>
+        <title value="Human Immunodeficiency Virus (HIV) Conditions"/>
+        <status value="draft"/>
+        <date value="2020-05-07"/>
+        <publisher value="Patient Care Work Group"/>
+        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing vitamin D deficiency conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a vitamin D deficiency condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <purpose value="$Purpose"/>
+        <copyright value="This is for copyright"/>
+        <fhirVersion value="4.0.1"/>
+        <kind value="resource"/>
+        <abstract value="false"/>
+        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
+        <type value="Condition"/>
+        <!-- All of our Conditions will be US Core  -->
+        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+        <derivation value="constraint"/>
+        <differential>
+          <element id="Condition">
+            <path value="Condition"/>
+          </element>
+          <element id="Condition.code">
+            <path value="Condition.code"/>
+            <label value="$Label"/>
+            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
+            <short value="Human Immunodeficiency Virus (HIV) Disease"/>
+            <binding>
+              <!-- All of our value sets will be required -->
+              <strength value="required"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.120.12.1003/expansion"/>
+            </binding>
+          </element>
+          <!-- We will make Condition.onset "Must Support" in all conditions -->
+          <element id="Condition.onset[x]">
+            <path value="Condition.onset[x]"/>
+            <mustSupport value="true"/>
+          </element>
+          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
+          <element id="Condition.recordedDate">
+            <path value="Condition.recordedDate"/>
+            <min value="1"/>
+            <mustSupport value="true"/>
+          </element>
+        </differential>
+      </StructureDefinition>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="StructureDefinition/HumanImmunodeficiencyVirusHIVDisease"/>
     </request>
   </entry>
   <entry>
@@ -1294,6 +1522,82 @@
     </request>
   </entry>
   <entry>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/HyperkalemiaConditions"/>
+    <resource>
+      <StructureDefinition>
+        <id value="HyperkalemiaConditions"/>
+        <meta>
+          <versionId value="10"/>
+          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
+          <source value="#4L1SrkuMARIAi7Kg"/>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^write"/>
+          </security>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^read"/>
+          </security>
+        </meta>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value=""/>
+        </extension>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
+          <!-- Profile Note - Not sure if we will use this -->
+          <valueMarkdown value=""/>
+        </extension>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/HyperkalemiaConditions"/>
+        <name value="HyperkalemiaConditions"/>
+        <title value="Hyperkalemia Conditions"/>
+        <status value="draft"/>
+        <date value="2020-05-07"/>
+        <publisher value="Patient Care Work Group"/>
+        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch hyperkalemia conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to an anemia hyperkalemia value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <purpose value="$Purpose"/>
+        <copyright value="This is for copyright"/>
+        <fhirVersion value="4.0.1"/>
+        <kind value="resource"/>
+        <abstract value="false"/>
+        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
+        <type value="Condition"/>
+        <!-- All of our Conditions will be US Core  -->
+        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+        <derivation value="constraint"/>
+        <differential>
+          <element id="Condition">
+            <path value="Condition"/>
+          </element>
+          <element id="Condition.code">
+            <path value="Condition.code"/>
+            <label value="$Label"/>
+            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
+            <short value="Hyperkalemia Conditions"/>
+            <binding>
+              <!-- All of our value sets will be required -->
+              <strength value="required"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.50/expansion"/>
+            </binding>
+          </element>
+          <!-- We will make Condition.onset "Must Support" in all conditions -->
+          <element id="Condition.onset[x]">
+            <path value="Condition.onset[x]"/>
+            <mustSupport value="true"/>
+          </element>
+          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
+          <element id="Condition.recordedDate">
+            <path value="Condition.recordedDate"/>
+            <min value="1"/>
+            <mustSupport value="true"/>
+          </element>
+        </differential>
+      </StructureDefinition>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="StructureDefinition/HyperkalemiaConditions"/>
+    </request>
+  </entry>
+  <entry>
     <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/HyperlipidemiaConditions"/>
     <resource>
       <StructureDefinition>
@@ -1367,6 +1671,82 @@
     <request>
       <method value="PUT"/>
       <url value="StructureDefinition/HyperlipidemiaConditions"/>
+    </request>
+  </entry>
+  <entry>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/HyperparathyroidismCondition"/>
+    <resource>
+      <StructureDefinition>
+        <id value="HyperparathyroidismCondition"/>
+        <meta>
+          <versionId value="10"/>
+          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
+          <source value="#4L1SrkuMARIAi7Kg"/>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^write"/>
+          </security>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^read"/>
+          </security>
+        </meta>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value=""/>
+        </extension>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
+          <!-- Profile Note - Not sure if we will use this -->
+          <valueMarkdown value=""/>
+        </extension>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/HyperparathyroidismCondition"/>
+        <name value="HyperparathyroidismCondition"/>
+        <title value="Hyperparathyroidism Conditions"/>
+        <status value="draft"/>
+        <date value="2020-05-07"/>
+        <publisher value="Patient Care Work Group"/>
+        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing hyperparathyroidism conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a hyperparathyroidism condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <purpose value="$Purpose"/>
+        <copyright value="This is for copyright"/>
+        <fhirVersion value="4.0.1"/>
+        <kind value="resource"/>
+        <abstract value="false"/>
+        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
+        <type value="Condition"/>
+        <!-- All of our Conditions will be US Core  -->
+        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+        <derivation value="constraint"/>
+        <differential>
+          <element id="Condition">
+            <path value="Condition"/>
+          </element>
+          <element id="Condition.code">
+            <path value="Condition.code"/>
+            <label value="$Label"/>
+            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
+            <short value="Hyperparathyroidism Conditions"/>
+            <binding>
+              <!-- All of our value sets will be required -->
+              <strength value="required"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.117.12.1016/expansion"/>
+            </binding>
+          </element>
+          <!-- We will make Condition.onset "Must Support" in all conditions -->
+          <element id="Condition.onset[x]">
+            <path value="Condition.onset[x]"/>
+            <mustSupport value="true"/>
+          </element>
+          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
+          <element id="Condition.recordedDate">
+            <path value="Condition.recordedDate"/>
+            <min value="1"/>
+            <mustSupport value="true"/>
+          </element>
+        </differential>
+      </StructureDefinition>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="StructureDefinition/HyperparathyroidismCondition"/>
     </request>
   </entry>
   <entry>
@@ -1446,6 +1826,82 @@
     </request>
   </entry>
   <entry>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/HypertensionConditions"/>
+    <resource>
+      <StructureDefinition>
+        <id value="HypertensionConditions"/>
+        <meta>
+          <versionId value="10"/>
+          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
+          <source value="#4L1SrkuMARIAi7Kg"/>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^write"/>
+          </security>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^read"/>
+          </security>
+        </meta>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value=""/>
+        </extension>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
+          <!-- Profile Note - Not sure if we will use this -->
+          <valueMarkdown value=""/>
+        </extension>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/HypertensionConditions"/>
+        <name value="HypertensionConditions"/>
+        <title value="Hypertension Conditions"/>
+        <status value="draft"/>
+        <date value="2020-05-07"/>
+        <publisher value="Patient Care Work Group"/>
+        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing hypertension deficiency conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a vitamin D deficiency condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <purpose value="$Purpose"/>
+        <copyright value="This is for copyright"/>
+        <fhirVersion value="4.0.1"/>
+        <kind value="resource"/>
+        <abstract value="false"/>
+        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
+        <type value="Condition"/>
+        <!-- All of our Conditions will be US Core  -->
+        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+        <derivation value="constraint"/>
+        <differential>
+          <element id="Condition">
+            <path value="Condition"/>
+          </element>
+          <element id="Condition.code">
+            <path value="Condition.code"/>
+            <label value="$Label"/>
+            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
+            <short value="Hypertension Conditions"/>
+            <binding>
+              <!-- All of our value sets will be required -->
+              <strength value="required"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.9/expansion"/>
+            </binding>
+          </element>
+          <!-- We will make Condition.onset "Must Support" in all conditions -->
+          <element id="Condition.onset[x]">
+            <path value="Condition.onset[x]"/>
+            <mustSupport value="true"/>
+          </element>
+          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
+          <element id="Condition.recordedDate">
+            <path value="Condition.recordedDate"/>
+            <min value="1"/>
+            <mustSupport value="true"/>
+          </element>
+        </differential>
+      </StructureDefinition>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="StructureDefinition/HypertensionConditions"/>
+    </request>
+  </entry>
+  <entry>
     <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/HyperuricemiaConditions"/>
     <resource>
       <StructureDefinition>
@@ -1519,6 +1975,82 @@
     <request>
       <method value="PUT"/>
       <url value="StructureDefinition/HyperuricemiaConditions"/>
+    </request>
+  </entry>
+  <entry>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/HypoalbuminemiaConditions"/>
+    <resource>
+      <StructureDefinition>
+        <id value="HypoalbuminemiaConditions"/>
+        <meta>
+          <versionId value="10"/>
+          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
+          <source value="#4L1SrkuMARIAi7Kg"/>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^write"/>
+          </security>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^read"/>
+          </security>
+        </meta>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value=""/>
+        </extension>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
+          <!-- Profile Note - Not sure if we will use this -->
+          <valueMarkdown value=""/>
+        </extension>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/HypoalbuminemiaConditions"/>
+        <name value="HypoalbuminemiaConditions"/>
+        <title value="Hypoalbuminemia Conditions"/>
+        <status value="draft"/>
+        <date value="2020-05-07"/>
+        <publisher value="Patient Care Work Group"/>
+        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch hypoalbuminemia conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a hypoalbuminemia  condition value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <purpose value="$Purpose"/>
+        <copyright value="This is for copyright"/>
+        <fhirVersion value="4.0.1"/>
+        <kind value="resource"/>
+        <abstract value="false"/>
+        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
+        <type value="Condition"/>
+        <!-- All of our Conditions will be US Core  -->
+        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+        <derivation value="constraint"/>
+        <differential>
+          <element id="Condition">
+            <path value="Condition"/>
+          </element>
+          <element id="Condition.code">
+            <path value="Condition.code"/>
+            <label value="$Label"/>
+            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
+            <short value="Hypoalbuminemia Conditions"/>
+            <binding>
+              <!-- All of our value sets will be required -->
+              <strength value="required"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.47/expansion"/>
+            </binding>
+          </element>
+          <!-- We will make Condition.onset "Must Support" in all conditions -->
+          <element id="Condition.onset[x]">
+            <path value="Condition.onset[x]"/>
+            <mustSupport value="true"/>
+          </element>
+          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
+          <element id="Condition.recordedDate">
+            <path value="Condition.recordedDate"/>
+            <min value="1"/>
+            <mustSupport value="true"/>
+          </element>
+        </differential>
+      </StructureDefinition>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="StructureDefinition/HypoalbuminemiaConditions"/>
     </request>
   </entry>
   <entry>
@@ -1624,7 +2156,7 @@
         </extension>
         <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/InsomniaDisorders"/>
         <name value="InsomniaDisorders"/>
-        <title value="Insomnia Disorders"/>
+        <title value="Insomnia Conditions"/>
         <status value="draft"/>
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
@@ -1750,6 +2282,82 @@
     </request>
   </entry>
   <entry>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/ObesityConditions"/>
+    <resource>
+      <StructureDefinition>
+        <id value="ObesityConditions"/>
+        <meta>
+          <versionId value="10"/>
+          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
+          <source value="#4L1SrkuMARIAi7Kg"/>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^write"/>
+          </security>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^read"/>
+          </security>
+        </meta>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value=""/>
+        </extension>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
+          <!-- Profile Note - Not sure if we will use this -->
+          <valueMarkdown value=""/>
+        </extension>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/ObesityConditions"/>
+        <name value="ObesityConditions"/>
+        <title value="Obesity Conditions"/>
+        <status value="draft"/>
+        <date value="2020-05-07"/>
+        <publisher value="Patient Care Work Group"/>
+        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch obesity conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to an obesity conditions value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <purpose value="$Purpose"/>
+        <copyright value="This is for copyright"/>
+        <fhirVersion value="4.0.1"/>
+        <kind value="resource"/>
+        <abstract value="false"/>
+        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
+        <type value="Condition"/>
+        <!-- All of our Conditions will be US Core  -->
+        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+        <derivation value="constraint"/>
+        <differential>
+          <element id="Condition">
+            <path value="Condition"/>
+          </element>
+          <element id="Condition.code">
+            <path value="Condition.code"/>
+            <label value="$Label"/>
+            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
+            <short value="Obesity Conditions"/>
+            <binding>
+              <!-- All of our value sets will be required -->
+              <strength value="required"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.36/expansion"/>
+            </binding>
+          </element>
+          <!-- We will make Condition.onset "Must Support" in all conditions -->
+          <element id="Condition.onset[x]">
+            <path value="Condition.onset[x]"/>
+            <mustSupport value="true"/>
+          </element>
+          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
+          <element id="Condition.recordedDate">
+            <path value="Condition.recordedDate"/>
+            <min value="1"/>
+            <mustSupport value="true"/>
+          </element>
+        </differential>
+      </StructureDefinition>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="StructureDefinition/ObesityConditions"/>
+    </request>
+  </entry>
+  <entry>
     <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/PeripheralVascularDisease"/>
     <resource>
       <StructureDefinition>
@@ -1776,7 +2384,7 @@
         </extension>
         <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/PeripheralVascularDisease"/>
         <name value="PeripheralVascularDisease"/>
-        <title value="Peripheral Vascular Disease"/>
+        <title value="Peripheral Vascular Conditions"/>
         <status value="draft"/>
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
@@ -1852,7 +2460,7 @@
         </extension>
         <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/PostTraumaticStressDisorderPTSD"/>
         <name value="PostTraumaticStressDisorderPTSD"/>
-        <title value="PostTraumatic Stress Disorder PTSD"/>
+        <title value="PostTraumatic Stress Disorder PTSD Conditions"/>
         <status value="draft"/>
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
@@ -1928,7 +2536,7 @@
         </extension>
         <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/PreeclampsiaDisorders"/>
         <name value="PreeclampsiaDisorders"/>
-        <title value="Preeclampsia Disorders"/>
+        <title value="Preeclampsia Conditions"/>
         <status value="draft"/>
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
@@ -1978,6 +2586,82 @@
     </request>
   </entry>
   <entry>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/SchizophreniaorPsychoticDisorder"/>
+    <resource>
+      <StructureDefinition>
+        <id value="SchizophreniaorPsychoticDisorder"/>
+        <meta>
+          <versionId value="10"/>
+          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
+          <source value="#4L1SrkuMARIAi7Kg"/>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^write"/>
+          </security>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^read"/>
+          </security>
+        </meta>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value=""/>
+        </extension>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
+          <!-- Profile Note - Not sure if we will use this -->
+          <valueMarkdown value=""/>
+        </extension>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/SchizophreniaorPsychoticDisorder"/>
+        <name value="SchizophreniaorPsychoticDisorder"/>
+        <title value="Schizophrenia or Psychotic Conditions"/>
+        <status value="draft"/>
+        <date value="2020-05-07"/>
+        <publisher value="Patient Care Work Group"/>
+        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing schizophrenia or psychotic conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a schizophrenia or psychotic condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <purpose value="$Purpose"/>
+        <copyright value="This is for copyright"/>
+        <fhirVersion value="4.0.1"/>
+        <kind value="resource"/>
+        <abstract value="false"/>
+        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
+        <type value="Condition"/>
+        <!-- All of our Conditions will be US Core  -->
+        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+        <derivation value="constraint"/>
+        <differential>
+          <element id="Condition">
+            <path value="Condition"/>
+          </element>
+          <element id="Condition.code">
+            <path value="Condition.code"/>
+            <label value="$Label"/>
+            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
+            <short value="Schizophrenia or Psychotic Disorder"/>
+            <binding>
+              <!-- All of our value sets will be required -->
+              <strength value="required"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.105.12.1104/expansion"/>
+            </binding>
+          </element>
+          <!-- We will make Condition.onset "Must Support" in all conditions -->
+          <element id="Condition.onset[x]">
+            <path value="Condition.onset[x]"/>
+            <mustSupport value="true"/>
+          </element>
+          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
+          <element id="Condition.recordedDate">
+            <path value="Condition.recordedDate"/>
+            <min value="1"/>
+            <mustSupport value="true"/>
+          </element>
+        </differential>
+      </StructureDefinition>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="StructureDefinition/SchizophreniaorPsychoticDisorder"/>
+    </request>
+  </entry>
+  <entry>
     <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/SleepApneaDisorders"/>
     <resource>
       <StructureDefinition>
@@ -2004,7 +2688,7 @@
         </extension>
         <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/SleepApneaDisorders"/>
         <name value="SleepApneaDisorders"/>
-        <title value="Sleep Apnea Disorders"/>
+        <title value="Sleep Apnea Conditions"/>
         <status value="draft"/>
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
@@ -2051,6 +2735,310 @@
     <request>
       <method value="PUT"/>
       <url value="StructureDefinition/SleepApneaDisorders"/>
+    </request>
+  </entry>
+  <entry>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/SubstanceAbuseDisorder"/>
+    <resource>
+      <StructureDefinition>
+        <id value="SubstanceAbuseDisorder"/>
+        <meta>
+          <versionId value="10"/>
+          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
+          <source value="#4L1SrkuMARIAi7Kg"/>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^write"/>
+          </security>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^read"/>
+          </security>
+        </meta>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value=""/>
+        </extension>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
+          <!-- Profile Note - Not sure if we will use this -->
+          <valueMarkdown value=""/>
+        </extension>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/SubstanceAbuseDisorder"/>
+        <name value="SubstanceAbuseDisorder"/>
+        <title value="Substance Abuse Disorder Conditions"/>
+        <status value="draft"/>
+        <date value="2020-05-07"/>
+        <publisher value="Patient Care Work Group"/>
+        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing substance abuse conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a substance abuse condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <purpose value="$Purpose"/>
+        <copyright value="This is for copyright"/>
+        <fhirVersion value="4.0.1"/>
+        <kind value="resource"/>
+        <abstract value="false"/>
+        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
+        <type value="Condition"/>
+        <!-- All of our Conditions will be US Core  -->
+        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+        <derivation value="constraint"/>
+        <differential>
+          <element id="Condition">
+            <path value="Condition"/>
+          </element>
+          <element id="Condition.code">
+            <path value="Condition.code"/>
+            <label value="$Label"/>
+            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
+            <short value="Substance Abuse Disorder"/>
+            <binding>
+              <!-- All of our value sets will be required -->
+              <strength value="required"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.106.12.1004/expansion"/>
+            </binding>
+          </element>
+          <!-- We will make Condition.onset "Must Support" in all conditions -->
+          <element id="Condition.onset[x]">
+            <path value="Condition.onset[x]"/>
+            <mustSupport value="true"/>
+          </element>
+          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
+          <element id="Condition.recordedDate">
+            <path value="Condition.recordedDate"/>
+            <min value="1"/>
+            <mustSupport value="true"/>
+          </element>
+        </differential>
+      </StructureDefinition>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="StructureDefinition/SubstanceAbuseDisorder"/>
+    </request>
+  </entry>
+  <entry>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/TuberculosisDisorders"/>
+    <resource>
+      <StructureDefinition>
+        <id value="TuberculosisDisorders"/>
+        <meta>
+          <versionId value="10"/>
+          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
+          <source value="#4L1SrkuMARIAi7Kg"/>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^write"/>
+          </security>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^read"/>
+          </security>
+        </meta>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value=""/>
+        </extension>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
+          <!-- Profile Note - Not sure if we will use this -->
+          <valueMarkdown value=""/>
+        </extension>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/TuberculosisDisorders"/>
+        <name value="TuberculosisDisorders"/>
+        <title value="Tuberculosis Conditions"/>
+        <status value="draft"/>
+        <date value="2020-05-07"/>
+        <publisher value="Patient Care Work Group"/>
+        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch tuberculosis disorders associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a tuberculosis disorders value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <purpose value="$Purpose"/>
+        <copyright value="This is for copyright"/>
+        <fhirVersion value="4.0.1"/>
+        <kind value="resource"/>
+        <abstract value="false"/>
+        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
+        <type value="Condition"/>
+        <!-- All of our Conditions will be US Core  -->
+        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+        <derivation value="constraint"/>
+        <differential>
+          <element id="Condition">
+            <path value="Condition"/>
+          </element>
+          <element id="Condition.code">
+            <path value="Condition.code"/>
+            <label value="$Label"/>
+            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
+            <short value="Tuberculosis Disorders"/>
+            <binding>
+              <!-- All of our value sets will be required -->
+              <strength value="required"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1222.43/expansion"/>
+            </binding>
+          </element>
+          <!-- We will make Condition.onset "Must Support" in all conditions -->
+          <element id="Condition.onset[x]">
+            <path value="Condition.onset[x]"/>
+            <mustSupport value="true"/>
+          </element>
+          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
+          <element id="Condition.recordedDate">
+            <path value="Condition.recordedDate"/>
+            <min value="1"/>
+            <mustSupport value="true"/>
+          </element>
+        </differential>
+      </StructureDefinition>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="StructureDefinition/TuberculosisDisorders"/>
+    </request>
+  </entry>
+  <entry>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/Type1DiabetesDiagnosis"/>
+    <resource>
+      <StructureDefinition>
+        <id value="Type1DiabetesDiagnosis"/>
+        <meta>
+          <versionId value="10"/>
+          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
+          <source value="#4L1SrkuMARIAi7Kg"/>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^write"/>
+          </security>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^read"/>
+          </security>
+        </meta>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value=""/>
+        </extension>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
+          <!-- Profile Note - Not sure if we will use this -->
+          <valueMarkdown value=""/>
+        </extension>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/Type1DiabetesDiagnosis"/>
+        <name value="Type1DiabetesDiagnosis"/>
+        <title value="Type 1 Diabetes Conditions"/>
+        <status value="draft"/>
+        <date value="2020-05-07"/>
+        <publisher value="Patient Care Work Group"/>
+        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing type 1 diabetes conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a type 1 diabetes condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <purpose value="$Purpose"/>
+        <copyright value="This is for copyright"/>
+        <fhirVersion value="4.0.1"/>
+        <kind value="resource"/>
+        <abstract value="false"/>
+        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
+        <type value="Condition"/>
+        <!-- All of our Conditions will be US Core  -->
+        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+        <derivation value="constraint"/>
+        <differential>
+          <element id="Condition">
+            <path value="Condition"/>
+          </element>
+          <element id="Condition.code">
+            <path value="Condition.code"/>
+            <label value="$Label"/>
+            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
+            <short value="Type 1 Diabetes Diagnosis"/>
+            <binding>
+              <!-- All of our value sets will be required -->
+              <strength value="required"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.103.12.1020/expansion"/>
+            </binding>
+          </element>
+          <!-- We will make Condition.onset "Must Support" in all conditions -->
+          <element id="Condition.onset[x]">
+            <path value="Condition.onset[x]"/>
+            <mustSupport value="true"/>
+          </element>
+          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
+          <element id="Condition.recordedDate">
+            <path value="Condition.recordedDate"/>
+            <min value="1"/>
+            <mustSupport value="true"/>
+          </element>
+        </differential>
+      </StructureDefinition>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="StructureDefinition/Type1DiabetesDiagnosis"/>
+    </request>
+  </entry>
+  <entry>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/Type2DiabetesDiagnosis"/>
+    <resource>
+      <StructureDefinition>
+        <id value="Type2DiabetesDiagnosis"/>
+        <meta>
+          <versionId value="10"/>
+          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
+          <source value="#4L1SrkuMARIAi7Kg"/>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^write"/>
+          </security>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^read"/>
+          </security>
+        </meta>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value=""/>
+        </extension>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
+          <!-- Profile Note - Not sure if we will use this -->
+          <valueMarkdown value=""/>
+        </extension>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/Type2DiabetesDiagnosis"/>
+        <name value="Type2DiabetesDiagnosis"/>
+        <title value="Type 2 Diabetes Conditions"/>
+        <status value="draft"/>
+        <date value="2020-05-07"/>
+        <publisher value="Patient Care Work Group"/>
+        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing type 2 diabetes conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a type 2 diabetes condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <purpose value="$Purpose"/>
+        <copyright value="This is for copyright"/>
+        <fhirVersion value="4.0.1"/>
+        <kind value="resource"/>
+        <abstract value="false"/>
+        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
+        <type value="Condition"/>
+        <!-- All of our Conditions will be US Core  -->
+        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+        <derivation value="constraint"/>
+        <differential>
+          <element id="Condition">
+            <path value="Condition"/>
+          </element>
+          <element id="Condition.code">
+            <path value="Condition.code"/>
+            <label value="$Label"/>
+            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
+            <short value="Type 2 Diabetes Diagnosis"/>
+            <binding>
+              <!-- All of our value sets will be required -->
+              <strength value="required"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.103.12.1020/expansion"/>
+            </binding>
+          </element>
+          <!-- We will make Condition.onset "Must Support" in all conditions -->
+          <element id="Condition.onset[x]">
+            <path value="Condition.onset[x]"/>
+            <mustSupport value="true"/>
+          </element>
+          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
+          <element id="Condition.recordedDate">
+            <path value="Condition.recordedDate"/>
+            <min value="1"/>
+            <mustSupport value="true"/>
+          </element>
+        </differential>
+      </StructureDefinition>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="StructureDefinition/Type2DiabetesDiagnosis"/>
     </request>
   </entry>
   <entry>
@@ -2130,6 +3118,82 @@
     </request>
   </entry>
   <entry>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/ValvularHeartDisease"/>
+    <resource>
+      <StructureDefinition>
+        <id value="ValvularHeartDisease"/>
+        <meta>
+          <versionId value="10"/>
+          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
+          <source value="#4L1SrkuMARIAi7Kg"/>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^write"/>
+          </security>
+          <security>
+            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
+            <code value="everyone^read"/>
+          </security>
+        </meta>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value=""/>
+        </extension>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
+          <!-- Profile Note - Not sure if we will use this -->
+          <valueMarkdown value=""/>
+        </extension>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/ValvularHeartDisease"/>
+        <name value="ValvularHeartDisease"/>
+        <title value="Valvular Heart Conditions"/>
+        <status value="draft"/>
+        <date value="2020-05-07"/>
+        <publisher value="Patient Care Work Group"/>
+        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing valvular heart conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a vitamin D deficiency condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <purpose value="$Purpose"/>
+        <copyright value="This is for copyright"/>
+        <fhirVersion value="4.0.1"/>
+        <kind value="resource"/>
+        <abstract value="false"/>
+        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
+        <type value="Condition"/>
+        <!-- All of our Conditions will be US Core  -->
+        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+        <derivation value="constraint"/>
+        <differential>
+          <element id="Condition">
+            <path value="Condition"/>
+          </element>
+          <element id="Condition.code">
+            <path value="Condition.code"/>
+            <label value="$Label"/>
+            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
+            <short value="Valvular Heart Disease"/>
+            <binding>
+              <!-- All of our value sets will be required -->
+              <strength value="required"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.104.12.1017/expansion"/>
+            </binding>
+          </element>
+          <!-- We will make Condition.onset "Must Support" in all conditions -->
+          <element id="Condition.onset[x]">
+            <path value="Condition.onset[x]"/>
+            <mustSupport value="true"/>
+          </element>
+          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
+          <element id="Condition.recordedDate">
+            <path value="Condition.recordedDate"/>
+            <min value="1"/>
+            <mustSupport value="true"/>
+          </element>
+        </differential>
+      </StructureDefinition>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="StructureDefinition/ValvularHeartDisease"/>
+    </request>
+  </entry>
+  <entry>
     <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/VitaminDDeficiencyConditions"/>
     <resource>
       <StructureDefinition>
@@ -2203,1070 +3267,6 @@
     <request>
       <method value="PUT"/>
       <url value="StructureDefinition/VitaminDDeficiencyConditions"/>
-    </request>
-  </entry>
-  <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/AnxietyConditions"/>
-    <resource>
-      <StructureDefinition>
-        <id value="AnxietyConditions"/>
-        <meta>
-          <versionId value="10"/>
-          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
-          <source value="#4L1SrkuMARIAi7Kg"/>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^write"/>
-          </security>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^read"/>
-          </security>
-        </meta>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-          <valueMarkdown value=""/>
-        </extension>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
-          <!-- Profile Note - Not sure if we will use this -->
-          <valueMarkdown value=""/>
-        </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/AnxietyConditions"/>
-        <name value="AnxietyConditions"/>
-        <title value="Anxiety Conditions"/>
-        <status value="draft"/>
-        <date value="2020-05-07"/>
-        <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing anxiety  conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to an anxiety condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
-        <copyright value="This is for copyright"/>
-        <fhirVersion value="4.0.1"/>
-        <kind value="resource"/>
-        <abstract value="false"/>
-        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
-        <type value="Condition"/>
-        <!-- All of our Conditions will be US Core  -->
-        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
-        <derivation value="constraint"/>
-        <differential>
-          <element id="Condition">
-            <path value="Condition"/>
-          </element>
-          <element id="Condition.code">
-            <path value="Condition.code"/>
-            <label value="$Label"/>
-            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Anxiety Conditions"/>
-            <binding>
-              <!-- All of our value sets will be required -->
-              <strength value="required"/>
-              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.52/expansion"/>
-            </binding>
-          </element>
-          <!-- We will make Condition.onset "Must Support" in all conditions -->
-          <element id="Condition.onset[x]">
-            <path value="Condition.onset[x]"/>
-            <mustSupport value="true"/>
-          </element>
-          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
-          <element id="Condition.recordedDate">
-            <path value="Condition.recordedDate"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-          </element>
-        </differential>
-      </StructureDefinition>
-    </resource>
-    <request>
-      <method value="PUT"/>
-      <url value="StructureDefinition/AnxietyConditions"/>
-    </request>
-  </entry>
-  <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/BipolarConditions"/>
-    <resource>
-      <StructureDefinition>
-        <id value="BipolarConditions"/>
-        <meta>
-          <versionId value="10"/>
-          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
-          <source value="#4L1SrkuMARIAi7Kg"/>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^write"/>
-          </security>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^read"/>
-          </security>
-        </meta>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-          <valueMarkdown value=""/>
-        </extension>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
-          <!-- Profile Note - Not sure if we will use this -->
-          <valueMarkdown value=""/>
-        </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/BipolarConditions"/>
-        <name value="BipolarConditions"/>
-        <title value="Bipolar Conditions"/>
-        <status value="draft"/>
-        <date value="2020-05-07"/>
-        <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing bipolar  conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a bipolar condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
-        <copyright value="This is for copyright"/>
-        <fhirVersion value="4.0.1"/>
-        <kind value="resource"/>
-        <abstract value="false"/>
-        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
-        <type value="Condition"/>
-        <!-- All of our Conditions will be US Core  -->
-        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
-        <derivation value="constraint"/>
-        <differential>
-          <element id="Condition">
-            <path value="Condition"/>
-          </element>
-          <element id="Condition.code">
-            <path value="Condition.code"/>
-            <label value="$Label"/>
-            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Bipolar Conditions"/>
-            <binding>
-              <!-- All of our value sets will be required -->
-              <strength value="required"/>
-              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.600.450/expansion"/>
-            </binding>
-          </element>
-          <!-- We will make Condition.onset "Must Support" in all conditions -->
-          <element id="Condition.onset[x]">
-            <path value="Condition.onset[x]"/>
-            <mustSupport value="true"/>
-          </element>
-          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
-          <element id="Condition.recordedDate">
-            <path value="Condition.recordedDate"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-          </element>
-        </differential>
-      </StructureDefinition>
-    </resource>
-    <request>
-      <method value="PUT"/>
-      <url value="StructureDefinition/BipolarConditions"/>
-    </request>
-  </entry>
-  <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/CoronaryArteryDiseaseConditions"/>
-    <resource>
-      <StructureDefinition>
-        <id value="CoronaryArteryDiseaseConditions"/>
-        <meta>
-          <versionId value="10"/>
-          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
-          <source value="#4L1SrkuMARIAi7Kg"/>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^write"/>
-          </security>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^read"/>
-          </security>
-        </meta>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-          <valueMarkdown value=""/>
-        </extension>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
-          <!-- Profile Note - Not sure if we will use this -->
-          <valueMarkdown value=""/>
-        </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/CoronaryArteryDiseaseConditions"/>
-        <name value="CoronaryArteryDiseaseConditions"/>
-        <title value="Coronary Artery Disease Conditions"/>
-        <status value="draft"/>
-        <date value="2020-05-07"/>
-        <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing coronary artery disease conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a coronary artery disease condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
-        <copyright value="This is for copyright"/>
-        <fhirVersion value="4.0.1"/>
-        <kind value="resource"/>
-        <abstract value="false"/>
-        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
-        <type value="Condition"/>
-        <!-- All of our Conditions will be US Core  -->
-        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
-        <derivation value="constraint"/>
-        <differential>
-          <element id="Condition">
-            <path value="Condition"/>
-          </element>
-          <element id="Condition.code">
-            <path value="Condition.code"/>
-            <label value="$Label"/>
-            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Coronary Artery Disease Conditions"/>
-            <binding>
-              <!-- All of our value sets will be required -->
-              <strength value="required"/>
-              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.526.3.369/expansion"/>
-            </binding>
-          </element>
-          <!-- We will make Condition.onset "Must Support" in all conditions -->
-          <element id="Condition.onset[x]">
-            <path value="Condition.onset[x]"/>
-            <mustSupport value="true"/>
-          </element>
-          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
-          <element id="Condition.recordedDate">
-            <path value="Condition.recordedDate"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-          </element>
-        </differential>
-      </StructureDefinition>
-    </resource>
-    <request>
-      <method value="PUT"/>
-      <url value="StructureDefinition/CoronaryArteryDiseaseConditions"/>
-    </request>
-  </entry>
-  <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/DiabeticRetinopathyConditons"/>
-    <resource>
-      <StructureDefinition>
-        <id value="DiabeticRetinopathyConditons"/>
-        <meta>
-          <versionId value="10"/>
-          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
-          <source value="#4L1SrkuMARIAi7Kg"/>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^write"/>
-          </security>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^read"/>
-          </security>
-        </meta>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-          <valueMarkdown value=""/>
-        </extension>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
-          <!-- Profile Note - Not sure if we will use this -->
-          <valueMarkdown value=""/>
-        </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/DiabeticRetinopathyConditons"/>
-        <name value="DiabeticRetinopathyConditons"/>
-        <title value="Diabetic Retinopathy Conditons"/>
-        <status value="draft"/>
-        <date value="2020-05-07"/>
-        <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing diabetic retinopathy conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a diabetic retinopathy condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
-        <copyright value="This is for copyright"/>
-        <fhirVersion value="4.0.1"/>
-        <kind value="resource"/>
-        <abstract value="false"/>
-        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
-        <type value="Condition"/>
-        <!-- All of our Conditions will be US Core  -->
-        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
-        <derivation value="constraint"/>
-        <differential>
-          <element id="Condition">
-            <path value="Condition"/>
-          </element>
-          <element id="Condition.code">
-            <path value="Condition.code"/>
-            <label value="$Label"/>
-            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Diabetic Retinopathy Conditons"/>
-            <binding>
-              <!-- All of our value sets will be required -->
-              <strength value="required"/>
-              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.526.3.327/expansion"/>
-            </binding>
-          </element>
-          <!-- We will make Condition.onset "Must Support" in all conditions -->
-          <element id="Condition.onset[x]">
-            <path value="Condition.onset[x]"/>
-            <mustSupport value="true"/>
-          </element>
-          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
-          <element id="Condition.recordedDate">
-            <path value="Condition.recordedDate"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-          </element>
-        </differential>
-      </StructureDefinition>
-    </resource>
-    <request>
-      <method value="PUT"/>
-      <url value="StructureDefinition/DiabeticRetinopathyConditons"/>
-    </request>
-  </entry>
-  <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/HeartFailure"/>
-    <resource>
-      <StructureDefinition>
-        <id value="HeartFailure"/>
-        <meta>
-          <versionId value="10"/>
-          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
-          <source value="#4L1SrkuMARIAi7Kg"/>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^write"/>
-          </security>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^read"/>
-          </security>
-        </meta>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-          <valueMarkdown value=""/>
-        </extension>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
-          <!-- Profile Note - Not sure if we will use this -->
-          <valueMarkdown value=""/>
-        </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/HeartFailure"/>
-        <name value="HeartFailure"/>
-        <title value="Heart Failure"/>
-        <status value="draft"/>
-        <date value="2020-05-07"/>
-        <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing heart failure conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a heart failure condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
-        <copyright value="This is for copyright"/>
-        <fhirVersion value="4.0.1"/>
-        <kind value="resource"/>
-        <abstract value="false"/>
-        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
-        <type value="Condition"/>
-        <!-- All of our Conditions will be US Core  -->
-        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
-        <derivation value="constraint"/>
-        <differential>
-          <element id="Condition">
-            <path value="Condition"/>
-          </element>
-          <element id="Condition.code">
-            <path value="Condition.code"/>
-            <label value="$Label"/>
-            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Heart Failure"/>
-            <binding>
-              <!-- All of our value sets will be required -->
-              <strength value="required"/>
-              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.526.3.376/expansion"/>
-            </binding>
-          </element>
-          <!-- We will make Condition.onset "Must Support" in all conditions -->
-          <element id="Condition.onset[x]">
-            <path value="Condition.onset[x]"/>
-            <mustSupport value="true"/>
-          </element>
-          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
-          <element id="Condition.recordedDate">
-            <path value="Condition.recordedDate"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-          </element>
-        </differential>
-      </StructureDefinition>
-    </resource>
-    <request>
-      <method value="PUT"/>
-      <url value="StructureDefinition/HeartFailure"/>
-    </request>
-  </entry>
-  <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/HepatitisBCondition"/>
-    <resource>
-      <StructureDefinition>
-        <id value="HepatitisBCondition"/>
-        <meta>
-          <versionId value="10"/>
-          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
-          <source value="#4L1SrkuMARIAi7Kg"/>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^write"/>
-          </security>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^read"/>
-          </security>
-        </meta>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-          <valueMarkdown value=""/>
-        </extension>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
-          <!-- Profile Note - Not sure if we will use this -->
-          <valueMarkdown value=""/>
-        </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/HepatitisBCondition"/>
-        <name value="HepatitisBCondition"/>
-        <title value="Hepatitis B Condition"/>
-        <status value="draft"/>
-        <date value="2020-05-07"/>
-        <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing hepatitis B conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a hepatitis B condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
-        <copyright value="This is for copyright"/>
-        <fhirVersion value="4.0.1"/>
-        <kind value="resource"/>
-        <abstract value="false"/>
-        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
-        <type value="Condition"/>
-        <!-- All of our Conditions will be US Core  -->
-        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
-        <derivation value="constraint"/>
-        <differential>
-          <element id="Condition">
-            <path value="Condition"/>
-          </element>
-          <element id="Condition.code">
-            <path value="Condition.code"/>
-            <label value="$Label"/>
-            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Hepatitis B Condition"/>
-            <binding>
-              <!-- All of our value sets will be required -->
-              <strength value="required"/>
-              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.67.1.101.1.269/expansion"/>
-            </binding>
-          </element>
-          <!-- We will make Condition.onset "Must Support" in all conditions -->
-          <element id="Condition.onset[x]">
-            <path value="Condition.onset[x]"/>
-            <mustSupport value="true"/>
-          </element>
-          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
-          <element id="Condition.recordedDate">
-            <path value="Condition.recordedDate"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-          </element>
-        </differential>
-      </StructureDefinition>
-    </resource>
-    <request>
-      <method value="PUT"/>
-      <url value="StructureDefinition/HepatitisBCondition"/>
-    </request>
-  </entry>
-  <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/HumanImmunodeficiencyVirusHIVDisease"/>
-    <resource>
-      <StructureDefinition>
-        <id value="HumanImmunodeficiencyVirusHIVDisease"/>
-        <meta>
-          <versionId value="10"/>
-          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
-          <source value="#4L1SrkuMARIAi7Kg"/>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^write"/>
-          </security>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^read"/>
-          </security>
-        </meta>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-          <valueMarkdown value=""/>
-        </extension>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
-          <!-- Profile Note - Not sure if we will use this -->
-          <valueMarkdown value=""/>
-        </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/HumanImmunodeficiencyVirusHIVDisease"/>
-        <name value="HumanImmunodeficiencyVirusHIVDisease"/>
-        <title value="Human Immunodeficiency Virus (HIV) Disease"/>
-        <status value="draft"/>
-        <date value="2020-05-07"/>
-        <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing vitamin D deficiency conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a vitamin D deficiency condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
-        <copyright value="This is for copyright"/>
-        <fhirVersion value="4.0.1"/>
-        <kind value="resource"/>
-        <abstract value="false"/>
-        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
-        <type value="Condition"/>
-        <!-- All of our Conditions will be US Core  -->
-        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
-        <derivation value="constraint"/>
-        <differential>
-          <element id="Condition">
-            <path value="Condition"/>
-          </element>
-          <element id="Condition.code">
-            <path value="Condition.code"/>
-            <label value="$Label"/>
-            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Human Immunodeficiency Virus (HIV) Disease"/>
-            <binding>
-              <!-- All of our value sets will be required -->
-              <strength value="required"/>
-              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.120.12.1003/expansion"/>
-            </binding>
-          </element>
-          <!-- We will make Condition.onset "Must Support" in all conditions -->
-          <element id="Condition.onset[x]">
-            <path value="Condition.onset[x]"/>
-            <mustSupport value="true"/>
-          </element>
-          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
-          <element id="Condition.recordedDate">
-            <path value="Condition.recordedDate"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-          </element>
-        </differential>
-      </StructureDefinition>
-    </resource>
-    <request>
-      <method value="PUT"/>
-      <url value="StructureDefinition/HumanImmunodeficiencyVirusHIVDisease"/>
-    </request>
-  </entry>
-  <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/HyperparathyroidismCondition"/>
-    <resource>
-      <StructureDefinition>
-        <id value="HyperparathyroidismCondition"/>
-        <meta>
-          <versionId value="10"/>
-          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
-          <source value="#4L1SrkuMARIAi7Kg"/>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^write"/>
-          </security>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^read"/>
-          </security>
-        </meta>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-          <valueMarkdown value=""/>
-        </extension>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
-          <!-- Profile Note - Not sure if we will use this -->
-          <valueMarkdown value=""/>
-        </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/HyperparathyroidismCondition"/>
-        <name value="HyperparathyroidismCondition"/>
-        <title value="Hyperparathyroidism Condition"/>
-        <status value="draft"/>
-        <date value="2020-05-07"/>
-        <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing hyperparathyroidism conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a hyperparathyroidism condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
-        <copyright value="This is for copyright"/>
-        <fhirVersion value="4.0.1"/>
-        <kind value="resource"/>
-        <abstract value="false"/>
-        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
-        <type value="Condition"/>
-        <!-- All of our Conditions will be US Core  -->
-        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
-        <derivation value="constraint"/>
-        <differential>
-          <element id="Condition">
-            <path value="Condition"/>
-          </element>
-          <element id="Condition.code">
-            <path value="Condition.code"/>
-            <label value="$Label"/>
-            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Hyperparathyroidism Condition"/>
-            <binding>
-              <!-- All of our value sets will be required -->
-              <strength value="required"/>
-              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.117.12.1016/expansion"/>
-            </binding>
-          </element>
-          <!-- We will make Condition.onset "Must Support" in all conditions -->
-          <element id="Condition.onset[x]">
-            <path value="Condition.onset[x]"/>
-            <mustSupport value="true"/>
-          </element>
-          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
-          <element id="Condition.recordedDate">
-            <path value="Condition.recordedDate"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-          </element>
-        </differential>
-      </StructureDefinition>
-    </resource>
-    <request>
-      <method value="PUT"/>
-      <url value="StructureDefinition/HyperparathyroidismCondition"/>
-    </request>
-  </entry>
-  <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/HypertensionConditions"/>
-    <resource>
-      <StructureDefinition>
-        <id value="HypertensionConditions"/>
-        <meta>
-          <versionId value="10"/>
-          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
-          <source value="#4L1SrkuMARIAi7Kg"/>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^write"/>
-          </security>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^read"/>
-          </security>
-        </meta>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-          <valueMarkdown value=""/>
-        </extension>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
-          <!-- Profile Note - Not sure if we will use this -->
-          <valueMarkdown value=""/>
-        </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/HypertensionConditions"/>
-        <name value="HypertensionConditions"/>
-        <title value="Hypertension Conditions"/>
-        <status value="draft"/>
-        <date value="2020-05-07"/>
-        <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing hypertension deficiency conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a vitamin D deficiency condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
-        <copyright value="This is for copyright"/>
-        <fhirVersion value="4.0.1"/>
-        <kind value="resource"/>
-        <abstract value="false"/>
-        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
-        <type value="Condition"/>
-        <!-- All of our Conditions will be US Core  -->
-        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
-        <derivation value="constraint"/>
-        <differential>
-          <element id="Condition">
-            <path value="Condition"/>
-          </element>
-          <element id="Condition.code">
-            <path value="Condition.code"/>
-            <label value="$Label"/>
-            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Hypertension Conditions"/>
-            <binding>
-              <!-- All of our value sets will be required -->
-              <strength value="required"/>
-              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1032.9/expansion"/>
-            </binding>
-          </element>
-          <!-- We will make Condition.onset "Must Support" in all conditions -->
-          <element id="Condition.onset[x]">
-            <path value="Condition.onset[x]"/>
-            <mustSupport value="true"/>
-          </element>
-          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
-          <element id="Condition.recordedDate">
-            <path value="Condition.recordedDate"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-          </element>
-        </differential>
-      </StructureDefinition>
-    </resource>
-    <request>
-      <method value="PUT"/>
-      <url value="StructureDefinition/HypertensionConditions"/>
-    </request>
-  </entry>
-  <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/SchizophreniaorPsychoticDisorder"/>
-    <resource>
-      <StructureDefinition>
-        <id value="SchizophreniaorPsychoticDisorder"/>
-        <meta>
-          <versionId value="10"/>
-          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
-          <source value="#4L1SrkuMARIAi7Kg"/>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^write"/>
-          </security>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^read"/>
-          </security>
-        </meta>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-          <valueMarkdown value=""/>
-        </extension>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
-          <!-- Profile Note - Not sure if we will use this -->
-          <valueMarkdown value=""/>
-        </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/SchizophreniaorPsychoticDisorder"/>
-        <name value="SchizophreniaorPsychoticDisorder"/>
-        <title value="Schizophrenia or Psychotic Disorder"/>
-        <status value="draft"/>
-        <date value="2020-05-07"/>
-        <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing schizophrenia or psychotic conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a schizophrenia or psychotic condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
-        <copyright value="This is for copyright"/>
-        <fhirVersion value="4.0.1"/>
-        <kind value="resource"/>
-        <abstract value="false"/>
-        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
-        <type value="Condition"/>
-        <!-- All of our Conditions will be US Core  -->
-        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
-        <derivation value="constraint"/>
-        <differential>
-          <element id="Condition">
-            <path value="Condition"/>
-          </element>
-          <element id="Condition.code">
-            <path value="Condition.code"/>
-            <label value="$Label"/>
-            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Schizophrenia or Psychotic Disorder"/>
-            <binding>
-              <!-- All of our value sets will be required -->
-              <strength value="required"/>
-              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.105.12.1104/expansion"/>
-            </binding>
-          </element>
-          <!-- We will make Condition.onset "Must Support" in all conditions -->
-          <element id="Condition.onset[x]">
-            <path value="Condition.onset[x]"/>
-            <mustSupport value="true"/>
-          </element>
-          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
-          <element id="Condition.recordedDate">
-            <path value="Condition.recordedDate"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-          </element>
-        </differential>
-      </StructureDefinition>
-    </resource>
-    <request>
-      <method value="PUT"/>
-      <url value="StructureDefinition/SchizophreniaorPsychoticDisorder"/>
-    </request>
-  </entry>
-  <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/SubstanceAbuseDisorder"/>
-    <resource>
-      <StructureDefinition>
-        <id value="SubstanceAbuseDisorder"/>
-        <meta>
-          <versionId value="10"/>
-          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
-          <source value="#4L1SrkuMARIAi7Kg"/>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^write"/>
-          </security>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^read"/>
-          </security>
-        </meta>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-          <valueMarkdown value=""/>
-        </extension>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
-          <!-- Profile Note - Not sure if we will use this -->
-          <valueMarkdown value=""/>
-        </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/SubstanceAbuseDisorder"/>
-        <name value="SubstanceAbuseDisorder"/>
-        <title value="Substance Abuse Disorder"/>
-        <status value="draft"/>
-        <date value="2020-05-07"/>
-        <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing substance abuse conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a substance abuse condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
-        <copyright value="This is for copyright"/>
-        <fhirVersion value="4.0.1"/>
-        <kind value="resource"/>
-        <abstract value="false"/>
-        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
-        <type value="Condition"/>
-        <!-- All of our Conditions will be US Core  -->
-        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
-        <derivation value="constraint"/>
-        <differential>
-          <element id="Condition">
-            <path value="Condition"/>
-          </element>
-          <element id="Condition.code">
-            <path value="Condition.code"/>
-            <label value="$Label"/>
-            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Substance Abuse Disorder"/>
-            <binding>
-              <!-- All of our value sets will be required -->
-              <strength value="required"/>
-              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.106.12.1004/expansion"/>
-            </binding>
-          </element>
-          <!-- We will make Condition.onset "Must Support" in all conditions -->
-          <element id="Condition.onset[x]">
-            <path value="Condition.onset[x]"/>
-            <mustSupport value="true"/>
-          </element>
-          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
-          <element id="Condition.recordedDate">
-            <path value="Condition.recordedDate"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-          </element>
-        </differential>
-      </StructureDefinition>
-    </resource>
-    <request>
-      <method value="PUT"/>
-      <url value="StructureDefinition/SubstanceAbuseDisorder"/>
-    </request>
-  </entry>
-  <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/Type1DiabetesDiagnosis"/>
-    <resource>
-      <StructureDefinition>
-        <id value="Type1DiabetesDiagnosis"/>
-        <meta>
-          <versionId value="10"/>
-          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
-          <source value="#4L1SrkuMARIAi7Kg"/>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^write"/>
-          </security>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^read"/>
-          </security>
-        </meta>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-          <valueMarkdown value=""/>
-        </extension>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
-          <!-- Profile Note - Not sure if we will use this -->
-          <valueMarkdown value=""/>
-        </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/Type1DiabetesDiagnosis"/>
-        <name value="Type1DiabetesDiagnosis"/>
-        <title value="Type 1 Diabetes Diagnosis"/>
-        <status value="draft"/>
-        <date value="2020-05-07"/>
-        <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing type 1 diabetes conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a type 1 diabetes condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
-        <copyright value="This is for copyright"/>
-        <fhirVersion value="4.0.1"/>
-        <kind value="resource"/>
-        <abstract value="false"/>
-        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
-        <type value="Condition"/>
-        <!-- All of our Conditions will be US Core  -->
-        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
-        <derivation value="constraint"/>
-        <differential>
-          <element id="Condition">
-            <path value="Condition"/>
-          </element>
-          <element id="Condition.code">
-            <path value="Condition.code"/>
-            <label value="$Label"/>
-            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Type 1 Diabetes Diagnosis"/>
-            <binding>
-              <!-- All of our value sets will be required -->
-              <strength value="required"/>
-              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.103.12.1020/expansion"/>
-            </binding>
-          </element>
-          <!-- We will make Condition.onset "Must Support" in all conditions -->
-          <element id="Condition.onset[x]">
-            <path value="Condition.onset[x]"/>
-            <mustSupport value="true"/>
-          </element>
-          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
-          <element id="Condition.recordedDate">
-            <path value="Condition.recordedDate"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-          </element>
-        </differential>
-      </StructureDefinition>
-    </resource>
-    <request>
-      <method value="PUT"/>
-      <url value="StructureDefinition/Type1DiabetesDiagnosis"/>
-    </request>
-  </entry>
-  <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/Type2DiabetesDiagnosis"/>
-    <resource>
-      <StructureDefinition>
-        <id value="Type2DiabetesDiagnosis"/>
-        <meta>
-          <versionId value="10"/>
-          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
-          <source value="#4L1SrkuMARIAi7Kg"/>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^write"/>
-          </security>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^read"/>
-          </security>
-        </meta>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-          <valueMarkdown value=""/>
-        </extension>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
-          <!-- Profile Note - Not sure if we will use this -->
-          <valueMarkdown value=""/>
-        </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/Type2DiabetesDiagnosis"/>
-        <name value="Type2DiabetesDiagnosis"/>
-        <title value="Type 2 Diabetes Diagnosis"/>
-        <status value="draft"/>
-        <date value="2020-05-07"/>
-        <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing type 2 diabetes conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a type 2 diabetes condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
-        <copyright value="This is for copyright"/>
-        <fhirVersion value="4.0.1"/>
-        <kind value="resource"/>
-        <abstract value="false"/>
-        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
-        <type value="Condition"/>
-        <!-- All of our Conditions will be US Core  -->
-        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
-        <derivation value="constraint"/>
-        <differential>
-          <element id="Condition">
-            <path value="Condition"/>
-          </element>
-          <element id="Condition.code">
-            <path value="Condition.code"/>
-            <label value="$Label"/>
-            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Type 2 Diabetes Diagnosis"/>
-            <binding>
-              <!-- All of our value sets will be required -->
-              <strength value="required"/>
-              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.103.12.1020/expansion"/>
-            </binding>
-          </element>
-          <!-- We will make Condition.onset "Must Support" in all conditions -->
-          <element id="Condition.onset[x]">
-            <path value="Condition.onset[x]"/>
-            <mustSupport value="true"/>
-          </element>
-          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
-          <element id="Condition.recordedDate">
-            <path value="Condition.recordedDate"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-          </element>
-        </differential>
-      </StructureDefinition>
-    </resource>
-    <request>
-      <method value="PUT"/>
-      <url value="StructureDefinition/Type2DiabetesDiagnosis"/>
-    </request>
-  </entry>
-  <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/ValvularHeartDisease"/>
-    <resource>
-      <StructureDefinition>
-        <id value="ValvularHeartDisease"/>
-        <meta>
-          <versionId value="10"/>
-          <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
-          <source value="#4L1SrkuMARIAi7Kg"/>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^write"/>
-          </security>
-          <security>
-            <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-            <code value="everyone^read"/>
-          </security>
-        </meta>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-          <valueMarkdown value=""/>
-        </extension>
-        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
-          <!-- Profile Note - Not sure if we will use this -->
-          <valueMarkdown value=""/>
-        </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/ValvularHeartDisease"/>
-        <name value="ValvularHeartDisease"/>
-        <title value="Valvular Heart Disease"/>
-        <status value="draft"/>
-        <date value="2020-05-07"/>
-        <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing valvular heart conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a vitamin D deficiency condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
-        <copyright value="This is for copyright"/>
-        <fhirVersion value="4.0.1"/>
-        <kind value="resource"/>
-        <abstract value="false"/>
-        <!-- Same across same domain (e.g. Observation profiles will be different but all Condition ones will be the same) -->
-        <type value="Condition"/>
-        <!-- All of our Conditions will be US Core  -->
-        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
-        <derivation value="constraint"/>
-        <differential>
-          <element id="Condition">
-            <path value="Condition"/>
-          </element>
-          <element id="Condition.code">
-            <path value="Condition.code"/>
-            <label value="$Label"/>
-            <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
-            <short value="Valvular Heart Disease"/>
-            <binding>
-              <!-- All of our value sets will be required -->
-              <strength value="required"/>
-              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.104.12.1017/expansion"/>
-            </binding>
-          </element>
-          <!-- We will make Condition.onset "Must Support" in all conditions -->
-          <element id="Condition.onset[x]">
-            <path value="Condition.onset[x]"/>
-            <mustSupport value="true"/>
-          </element>
-          <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
-          <element id="Condition.recordedDate">
-            <path value="Condition.recordedDate"/>
-            <min value="1"/>
-            <mustSupport value="true"/>
-          </element>
-        </differential>
-      </StructureDefinition>
-    </resource>
-    <request>
-      <method value="PUT"/>
-      <url value="StructureDefinition/ValvularHeartDisease"/>
     </request>
   </entry>
 </Bundle>
