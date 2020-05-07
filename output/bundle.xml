@@ -686,10 +686,10 @@
     </request>
   </entry>
   <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/AlkalinePhosphataseDeficiencyConditions "/>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/AlkalinePhosphataseDeficiencyConditions"/>
     <resource>
       <StructureDefinition>
-        <id value="AlkalinePhosphataseDeficiencyConditions "/>
+        <id value="AlkalinePhosphataseDeficiencyConditions"/>
         <meta>
           <versionId value="10"/>
           <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
@@ -710,7 +710,7 @@
           <!-- Profile Note - Not sure if we will use this -->
           <valueMarkdown value=""/>
         </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/AlkalinePhosphataseDeficiencyConditions "/>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/AlkalinePhosphataseDeficiencyConditions"/>
         <name value="AlkalinePhosphataseDeficiencyConditions"/>
         <title value="Alkaline Phosphatase Deficiency Conditions"/>
         <status value="draft"/>
@@ -758,7 +758,7 @@
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="StructureDefinition/AlkalinePhosphataseDeficiencyConditions "/>
+      <url value="StructureDefinition/AlkalinePhosphataseDeficiencyConditions"/>
     </request>
   </entry>
   <entry>
