@@ -33,7 +33,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch alcohol abuse disorders associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to an alcohol abuse disorders value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -109,7 +108,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch alcohol abuse disorders associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to an alcohol abuse disorders value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -185,7 +183,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch anemia conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to an anemia condition value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="Test Purpose 2"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -261,7 +258,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing anxiety  conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to an anxiety condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -337,7 +333,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch arthritis disorders disorders associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to an arthritis disorders value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -413,7 +408,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing bipolar  conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a bipolar condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -489,7 +483,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch patients who have a chronic kidney disease condition. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a chronic kidney disease value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="Test Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -565,7 +558,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing causes of, or types of, chronic kidney disease associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a chronic kidney disease type or Cause value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -641,7 +633,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing chronic pain associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a chronic pain condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -717,7 +708,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch cognitive health and impaired memory disorder conditions associated with a patient. These conditions may be derived from assessment scales or questionnaires. The intent of this profile is only to represent the problem, condition or health concern itself and not an assessment scale or questionnaire. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a cognitive health and impaired memory disorder conditions value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -793,7 +783,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing coronary artery disease conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a coronary artery disease condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -869,7 +858,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing diabetic neuropathy conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a diabetic neuropathy condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -945,7 +933,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing diabetic retinopathy conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a diabetic retinopathy condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -1021,7 +1008,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch end stage renal disease conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to an end stage renal disease conditions value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -1097,7 +1083,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing heart failure conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a heart failure condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -1173,7 +1158,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing hematuria conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a hematuria condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -1249,7 +1233,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing hepatitis B conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a hepatitis B condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -1325,7 +1308,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing hepatitis c conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a hepatitis c condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -1401,7 +1383,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing vitamin D deficiency conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a vitamin D deficiency condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -1477,7 +1458,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing hypercalcemia conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a hypercalcemia condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -1553,7 +1533,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch hyperkalemia conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to an anemia hyperkalemia value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -1629,7 +1608,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing hyperlipidemia conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a hyperlipidemia condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -1705,7 +1683,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing hyperparathyroidism conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a hyperparathyroidism condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -1781,7 +1758,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing hyperphosphatemia conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a hyperphosphatemia condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -1857,7 +1833,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing hypertension deficiency conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a vitamin D deficiency condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -1933,7 +1908,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing hyperuricemia conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a hyperuricemia condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -2009,7 +1983,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch hypoalbuminemia conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a hypoalbuminemia  condition value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -2085,7 +2058,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing hypocalcemia conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a Hypocalcemia condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -2161,7 +2133,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing insomnia conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to an insomnia condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -2237,7 +2208,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing metabolic acidosis conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a metabolic acidosis condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -2313,7 +2283,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch obesity conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to an obesity conditions value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -2389,7 +2358,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing peripheral vascular disease conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a peripheral vascular disease condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -2465,7 +2433,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing post traumatic stress disorder (PTSD) conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a post traumatic stress disorder (PTSD) condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -2541,7 +2508,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing preeclampsia conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a preeclampsia condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -2617,7 +2583,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing schizophrenia or psychotic conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a schizophrenia or psychotic condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -2693,7 +2658,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing sleep apnea conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a sleep apnea condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -2769,7 +2733,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing substance abuse conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a substance abuse condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -2845,7 +2808,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch tuberculosis disorders associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a tuberculosis disorders value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -2921,7 +2883,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing type 1 diabetes conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a type 1 diabetes condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -2997,7 +2958,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing type 2 diabetes conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a type 2 diabetes condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -3073,7 +3033,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing uremic pruritus conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a uremic pruritus condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -3149,7 +3108,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing valvular heart conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a vitamin D deficiency condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -3225,7 +3183,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing vitamin D deficiency conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a vitamin D deficiency condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>

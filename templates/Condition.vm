@@ -33,7 +33,6 @@
     <date value="$GenDate"/>
     <publisher value="Patient Care Work Group"/>
     <description value="$Description"/>
-    <purpose value="$Purpose"/>
     <copyright value="This is for copyright"/>
     <fhirVersion value="4.0.1"/>
     <kind value="resource"/>

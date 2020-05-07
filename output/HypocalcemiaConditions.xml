@@ -33,7 +33,6 @@
         <date value="2020-05-07"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing hypocalcemia conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a Hypocalcemia condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
-        <purpose value="$Purpose"/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
