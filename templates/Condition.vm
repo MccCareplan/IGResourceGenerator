@@ -6,19 +6,6 @@
 <StructureDefinition
         xmlns="http://hl7.org/fhir">
     <id value="$Id"/>
-    <meta>
-    <versionId value="10"/>
-    <lastUpdated value="2020-03-30T15:16:23.476+00:00"/>
-    <source value="#4L1SrkuMARIAi7Kg"/>
-    <security>
-        <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-        <code value="everyone^write"/>
-    </security>
-    <security>
-        <system value="https://trifolia-fhir.lantanagroup.com/security"/>
-        <code value="everyone^read"/>
-    </security>
-    </meta>
     <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
         <valueMarkdown value=""/>
     </extension>
