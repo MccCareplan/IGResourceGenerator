@@ -396,9 +396,9 @@ public class MainProcessor {
         int rowCnt = 0;
         for (List<Object> row : values) {
             //We Ignore the header row
-            if (rowCnt > 0) {
+            if ((rowCnt > 0) && (row.size()>1) ) {
                 String key = (String) row.get(0);
-                if (StringUtils.isNotEmpty(key)) {
+                if (StringUtils.isNotEmpty(key)){
                     typeMap.put(key, (String) row.get(1));
                 }
             }
