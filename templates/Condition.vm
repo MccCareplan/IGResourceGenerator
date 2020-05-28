@@ -41,6 +41,7 @@
             <binding>
                 <!-- All of our value sets will be required -->
                 <strength value="required"/>
+                <description value="$ValueSetDescription"/>
                 #if ($ValueSetURL)
                     <valueSet value="$ValueSetURL"/>
                 #else

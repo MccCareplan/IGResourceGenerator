@@ -7,11 +7,11 @@
     xmlns="http://hl7.org/fhir">
     <id value="$Id"/>
     <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/$Id"/>
-    <name value="$Name"
+    <name value="$Name"/>
     <title value="$Title"/>
     <status value="draft"/>
     <date value="$GenDate"/>
-    <description value="The [US Core Procedure profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure) sets minimum expectations for the Procedure resource to record, search, and fetch procedures associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile. In addition to the requirements set in the US Core Procedure profile, procedureCode is bound to a Renal Disease Transplant Procedure value set. "/>
+    <description value="$Description"/>
     <jurisdiction>
         <coding>
             <system value="urn:iso:std:iso:3166:-2"/>
