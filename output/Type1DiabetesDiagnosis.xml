@@ -17,7 +17,7 @@
         <name value="Type1DiabetesDiagnosis"/>
         <title value="Type 1 Diabetes Conditions"/>
         <status value="draft"/>
-        <date value="2020-05-08"/>
+        <date value="2020-05-28"/>
         <publisher value="Patient Care Work Group"/>
         <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing type 1 diabetes conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a type 1 diabetes condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
         <copyright value="This is for copyright"/>
@@ -41,6 +41,7 @@
             <binding>
               <!-- All of our value sets will be required -->
               <strength value="required"/>
+              <description value="$ValueSetDescription"/>
               <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.103.12.1020/expansion"/>
             </binding>
           </element>
