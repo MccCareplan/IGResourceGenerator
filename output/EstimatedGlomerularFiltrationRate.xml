@@ -1,0 +1,6 @@
+<Bundle xmlns="http://hl7.org/fhir">
+  <type value="transaction"/>
+  <total value="1"/>
+  This template is designed for use with Conditions and a LaboratoryResultObservation was provided.
+
+</Bundle>
