@@ -1,4 +1,5 @@
-#if ($Type == "LabObservation")
+#if ($Type == "LaboratoryResultObservation")
+<entry>
 		<fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/$Id"/>
 		<resource>
 ##Raw follow
@@ -90,5 +91,5 @@
 		</request>
 	</entry>
 #else
-This template is designed for use with Conditions and a $Type was provided.
+This template is designed for use with LaboratoryResultObservation and a $Type was provided.
 #end
