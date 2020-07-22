@@ -6,6 +6,13 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="$Id"/>
+    <text>
+          <status value="generated"></status>
+          <div xmlns="http://www.w3.org/1999/xhtml">No text available</div>
+    </text>
+    <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+        <valueMarkdown value="$Introduction"/>
+    </extension>
     <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/$Id"/>
     <name value="$Name"/>
     <title value="$Title"/>

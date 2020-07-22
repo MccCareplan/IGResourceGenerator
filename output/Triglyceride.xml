@@ -1,0 +1,95 @@
+<Bundle xmlns="http://hl7.org/fhir">
+  <type value="transaction"/>
+  <total value="1"/>
+  <entry>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/Triglyceride"/>
+    <resource>
+      <StructureDefinition>
+        <id value="Triglyceride"/>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">No text available</div>
+        </text>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value="The [US Core Laboratory Result Observation Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab) sets minimum expectations for the Observation resource to record, search, and fetch laboratory test results associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile. In addition to the requirements set in the US Core Laboratory Result Observation Profile, observationCode is bound to a Triglyceride value set. "/>
+        </extension>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/Triglyceride"/>
+        <name value="Triglyceride"/>
+        <title value="Triglyceride"/>
+        <status value="draft"/>
+        <date value="2020-07-22"/>
+        <publisher value="Patient Care Work Group"/>
+        <description value="This profile constrains US Core Laboratory Result Observation to triglyceride results."/>
+        <jurisdiction>
+          <coding>
+            <system value="urn:iso:std:iso:3166:-2"/>
+            <code value="US"/>
+            <display value="United States"/>
+          </coding>
+          <text value="United States"/>
+        </jurisdiction>
+        <fhirVersion value="4.0.1"/>
+        <mapping>
+          <identity value="workflow"/>
+          <uri value="http://hl7.org/fhir/workflow"/>
+          <name value="Workflow Pattern"/>
+        </mapping>
+        <mapping>
+          <identity value="sct-concept"/>
+          <uri value="http://snomed.info/conceptdomain"/>
+          <name value="SNOMED CT Concept Domain Binding"/>
+        </mapping>
+        <mapping>
+          <identity value="v2"/>
+          <uri value="http://hl7.org/v2"/>
+          <name value="HL7 v2 Mapping"/>
+        </mapping>
+        <mapping>
+          <identity value="rim"/>
+          <uri value="http://hl7.org/v3"/>
+          <name value="RIM Mapping"/>
+        </mapping>
+        <mapping>
+          <identity value="w5"/>
+          <uri value="http://hl7.org/fhir/fivews"/>
+          <name value="FiveWs Pattern Mapping"/>
+        </mapping>
+        <mapping>
+          <identity value="sct-attr"/>
+          <uri value="http://snomed.org/attributebinding"/>
+          <name value="SNOMED CT Attribute Binding"/>
+        </mapping>
+        <mapping>
+          <identity value="argonaut-dq-dstu2"/>
+          <uri value="http://unknown.org/Argonaut-DQ-DSTU2"/>
+          <name value="Argonaut-DQ-DSTU2"/>
+        </mapping>
+        <kind value="resource"/>
+        <abstract value="false"/>
+        <type value="Observation"/>
+        <baseDefinition value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"/>
+        <derivation value="constraint"/>
+        <differential>
+          <element id="Observation">
+            <path value="Observation"/>
+          </element>
+          <element id="Observation.code">
+            <path value="Observation.code"/>
+            <label value="Label"/>
+            <short value="Triglyceride Blood Serum Plasma"/>
+            <binding>
+              <strength value="required"/>
+              <description value="This set of values contains laboratory observable term codes for triglyceride results in blood, serum and plasma."/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/ 2.16.840.1.113762.1.4.1222.137/expansion"/>
+              <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.6929.3.1000/expansion/"/>
+            </binding>
+          </element>
+        </differential>
+      </StructureDefinition>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="StructureDefinition/Triglyceride"/>
+    </request>
+  </entry>
+</Bundle>

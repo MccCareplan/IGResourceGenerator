@@ -6,8 +6,12 @@
     <resource>
       <StructureDefinition>
         <id value="SubstanceAbuseDisorder"/>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">No text available</div>
+        </text>
         <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
-          <valueMarkdown value=""/>
+          <valueMarkdown value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing substance abuse conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a substance abuse condition or diagnosis value set and the Condition.onset and Condition.recordedDate are set to &quot;must support&quot;."/>
         </extension>
         <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-notes">
           <!-- Profile Note - Not sure if we will use this -->
@@ -17,9 +21,9 @@
         <name value="SubstanceAbuseDisorder"/>
         <title value="Substance Abuse Disorder Conditions"/>
         <status value="draft"/>
-        <date value="2020-05-28"/>
+        <date value="2020-07-22"/>
         <publisher value="Patient Care Work Group"/>
-        <description value="This profile sets additional expectations for the US Core Condition profile to record, search, and fetch condition or diagnosis terms representing substance abuse conditions associated with a patient. In addition to the requirements set in the US Core Condition profile, conditionCode is bound to a substance abuse condition or diagnosis value set. The Condition.onset is set to &quot;must support&quot; and Condition.recordedDate is required."/>
+        <description value="This profile constrains US Core Condition to substance abuse disorder conditions."/>
         <copyright value="This is for copyright"/>
         <fhirVersion value="4.0.1"/>
         <kind value="resource"/>
@@ -35,13 +39,13 @@
           </element>
           <element id="Condition.code">
             <path value="Condition.code"/>
-            <label value="$Label"/>
+            <label value="Label"/>
             <!-- [Sean] Is this for value set name? Or what is the intended use of label vs short -->
             <short value="Substance Abuse Disorder"/>
             <binding>
               <!-- All of our value sets will be required -->
               <strength value="required"/>
-              <description value="$ValueSetDescription"/>
+              <description value="This value set contains concepts that represent substance abuse."/>
               <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.106.12.1004/expansion"/>
             </binding>
           </element>
@@ -53,7 +57,7 @@
           <!-- We will make Condition.recordedDate "Must Support" in all conditions -->
           <element id="Condition.recordedDate">
             <path value="Condition.recordedDate"/>
-            <min value="1"/>
+            <min value="0"/>
             <mustSupport value="true"/>
           </element>
         </differential>

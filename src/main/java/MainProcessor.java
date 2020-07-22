@@ -18,6 +18,7 @@ import java.io.*;
 import org.apache.commons.cli.*;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.SystemUtils;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.Template;
 import org.apache.velocity.app.Velocity;
@@ -445,9 +446,21 @@ public class MainProcessor {
         return resource.toString();
     }
 
+    public static String sanitizeName( String name ) {
+        if( null == name ) {
+            return "";
+        }
+        if( SystemUtils.IS_OS_LINUX || SystemUtils.IS_OS_MAC || SystemUtils.IS_OS_MAC_OSX) {
+            return name.replaceAll( "[\u0000/]+", "_" ).trim();
+        }
+
+        return name.replaceAll( "[\u0000-\u001f<>:\"/\\\\|?*\u007f]+", "_" ).trim();
+    }
+
     private void generateSingleOutput( VelocityContext context, String type, String templateName, String id) {
 
-        String outputFullFileName = String.format("%s" + File.separator + "%s%s%s.xml", outputDirectory, prefix, id, suffix);
+
+        String outputFullFileName = String.format("%s" + File.separator + "%s%s%s.xml", outputDirectory, prefix, sanitizeName(id), suffix);
 
 
         try {

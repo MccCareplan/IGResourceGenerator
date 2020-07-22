@@ -6,12 +6,19 @@
     <resource>
       <StructureDefinition>
         <id value="RenalTransplant"/>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">No text available</div>
+        </text>
+        <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
+          <valueMarkdown value="The [US Core Procedure profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure) sets minimum expectations for the Procedure resource to record, search, and fetch procedures associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile. In addition to the requirements set in the US Core Procedure profile, procedureCode is bound to a Renal Disease Transplant Procedure value set. "/>
+        </extension>
         <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/RenalTransplant"/>
         <name value="RenalTransplant"/>
         <title value="Renal Transplant Procedure"/>
         <status value="draft"/>
-        <date value="2020-05-28"/>
-        <description value="The [US Core Procedure profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure) sets minimum expectations for the Procedure resource to record, search, and fetch procedures associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile. In addition to the requirements set in the US Core Procedure profile, procedureCode is bound to a Renal Disease Transplant Procedure value set. "/>
+        <date value="2020-07-22"/>
+        <description value="This profile constrains US Core Procedure to renal transplant procedures."/>
         <jurisdiction>
           <coding>
             <system value="urn:iso:std:iso:3166:-2"/>
@@ -57,7 +64,7 @@
           </element>
           <element id="Procedure.code">
             <path value="Procedure.code"/>
-            <label value="$Label"/>
+            <label value="Label"/>
             <short value="Renal Disease Transplant Procedures"/>
             <binding>
               <strength value="required"/>
