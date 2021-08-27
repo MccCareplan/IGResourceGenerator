@@ -6,10 +6,6 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <id value="$Id"/>
-    <text>
-          <status value="generated"></status>
-          <div xmlns="http://www.w3.org/1999/xhtml">No text available</div>
-    </text>
     <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
         <valueMarkdown value="$Introduction"/>
     </extension>
@@ -73,6 +69,43 @@
         <element id="Observation">
             <path value="Observation"/>
         </element>
+        <element id="Observation.extension">
+            <path value="Observation.extension"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="url"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <mustSupport value="false"/>
+        </element>
+        <element id="Observation.extension:resource-pertainsToGoal">
+            <path value="Observation.extension"/>
+            <sliceName value="resource-pertainsToGoal"/>
+            <short value="The resource-pertainsToGoal relates the resource to the goal(s) that pertain to it. Whenever there is a goal associated with a health concern or problem, this extension should be present and populated in activity (event or intent) resources."/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.extension:resource-pertainsToGoal.url">
+            <path value="Observation.extension.url"/>
+            <fixedUri value="http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.extension:resource-pertainsToGoal.value[x]">
+            <path value="Observation.extension.value[x]"/>
+            <short value="A Reference to a Goal"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Observation.basedOn">
+            <path value="Observation.basedOn"/>
+            <mustSupport value="true"/>
+        </element>
         <element id="Observation.code">
             <path value="Observation.code"/>
             <label value="$Label"/>
@@ -85,9 +118,8 @@
                 #else
                     <valueSet value="https://vsac.nlm.nih.gov/valueset/$ValueSetOID/expansion"/>
                 #end
-               <valueSet value="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.6929.3.1000/expansion/"/>
             </binding>
-        </element>
+        </element>     
     </differential>
 </StructureDefinition>
 ##Addition to the Raw 

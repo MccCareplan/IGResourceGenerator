@@ -37,6 +37,39 @@
         <element id="Condition">
             <path value="Condition"/>
         </element>
+         <element id="Condition.extension">
+            <path value="Condition.extension"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="url"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+            <mustSupport value="false"/>
+        </element>
+        <element id="Condition.extension:resource-pertainsToGoal">
+            <path value="Condition.extension"/>
+            <sliceName value="resource-pertainsToGoal"/>
+            <short value="The resource-pertainsToGoal relates the resource to the goal(s) that pertain to it. Whenever there is a goal associated with a health concern or problem, this extension should be present and populated in activity (event or intent) resources."/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Condition.extension:resource-pertainsToGoal.url">
+            <path value="Condition.extension.url"/>
+            <fixedUri value="http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Condition.extension:resource-pertainsToGoal.value[x]">
+            <path value="Condition.extension.value[x]"/>
+            <short value="Reference to a Goal"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
         <element id="Condition.code">
             <path value="Condition.code"/>
             <label value="$Label"/>

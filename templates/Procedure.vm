@@ -3,8 +3,7 @@
 		<fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/$Id"/>
 		<resource>
 ##Raw follow
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="$Id"/>
     <text>
           <status value="generated"></status>
@@ -62,6 +61,39 @@
         <element id="Procedure">
             <path value="Procedure"/>
         </element>
+        <element id="Procedure.extension">
+            <path value="Procedure.extension"/>
+            <slicing>
+                <discriminator>
+                    <type value="value"/>
+                    <path value="url"/>
+                </discriminator>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="Procedure.extension:resource-pertainsToGoal">
+            <path value="Procedure.extension"/>
+            <sliceName value="resource-pertainsToGoal"/>
+            <short value="The resource-pertainsToGoal relates the resource to the goal(s) that pertain to it. Whenever there is a goal associated with a health concern or problem, this extension should be present and populated in activity (event or intent) resources."/>
+        </element>
+        <element id="Procedure.extension:resource-pertainsToGoal.url">
+            <path value="Procedure.extension.url"/>
+            <min value="1"/>
+            <max value="1"/>
+            <fixedUri value="http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal"/>
+            <mustSupport value="true"/>
+        </element>
+        <element id="Procedure.extension:resource-pertainsToGoal.value[x]">
+            <path value="Procedure.extension.value[x]"/>
+            <short value="A Reference to a Goal"/>
+            <min value="1"/>
+            <max value="1"/>
+            <type>
+                <code value="Reference"/>
+                <targetProfile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal"/>
+            </type>
+            <mustSupport value="true"/>
+        </element>
         <element id="Procedure.code">
             <path value="Procedure.code"/>
             <label value="$Label"/>
@@ -76,7 +108,12 @@
               #end
             </binding>
         </element>
-    </differential>
+        <element id="Procedure.reasonReference">
+            <path value="Procedure.reasonReference"/>
+            <short value="The procedure.reason.reference should be populated with the health concern or problem for which it is or was  performed."/>
+            <mustSupport value="true"/>
+        </element>
+   </differential>
 </StructureDefinition>
 ##Addition to the Raw 
 	</resource>
