@@ -420,13 +420,11 @@ public class MainProcessor {
             cell = cell.substring(1);
         }
 
-        //Remove Trailing quote if present
-        if (cell.endsWith("\"")) {
-            if (cell.length() == 1) {
-                return null;
-            }
-            cell = cell.substring(0, cell.length() - 2);
-        }
+
+
+        //Remove Trailing quote if presen
+        cell = StringUtils.stripEnd(cell,"\"\n\r ");
+        cell = StringUtils.trim(cell);
         cell = StringEscapeUtils.escapeXml(cell);
 
         return cell.isEmpty() ? null : cell;

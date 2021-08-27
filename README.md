@@ -11,7 +11,7 @@ This process drives of the spreadsheet at https://docs.google.com/spreadsheets/d
 
 ##Basic use
 ```
-usage: java -jar dist/IGResourceGenerator-1.0-RELEASE-all.jar
+usage: java -jar dist/IGResourceGenerator-1.1-RELEASE-all.jar
  -b,--bundle <filename>                  create the output in a single
                                          bundle file
  -h,--help                               print this help text

@@ -4224,10 +4224,10 @@
     </request>
   </entry>
   <entry>
-    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/KT/VHemodialysisRatio"/>
+    <fullUrl value="https://hapi4.lantanagroup.com/fhir/StructureDefinition/KTVHemodialysisRatio"/>
     <resource>
       <StructureDefinition>
-        <id value="KT/VHemodialysisRatio"/>
+        <id value="KTVHemodialysisRatio"/>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">No text available</div>
@@ -4235,8 +4235,8 @@
         <extension url="https://trifolia-fhir.lantanagroup.com/StructureDefinition/extension-sd-intro">
           <valueMarkdown value="The [US Core Laboratory Result Observation Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab) sets minimum expectations for the Observation resource to record, search, and fetch laboratory test results associated with a patient. It identifies which core elements, extensions, vocabularies and value sets **SHALL** be present in the resource when using this profile. In addition to the requirements set in the US Core Laboratory Result Observation Profile, observationCode is bound to a KT/V Hemodialysis Ratio value set. "/>
         </extension>
-        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/KT/VHemodialysisRatio"/>
-        <name value="KT/VHemodialysisRatio"/>
+        <url value="http://hl7.org/fhir/us/mcc/StructureDefinition/KTVHemodialysisRatio"/>
+        <name value="KTVHemodialysisRatio"/>
         <title value="KT/V Hemodialysis Ratio"/>
         <status value="draft"/>
         <date value="2020-07-22"/>
@@ -4311,7 +4311,7 @@
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="StructureDefinition/KT/VHemodialysisRatio"/>
+      <url value="StructureDefinition/KTVHemodialysisRatio"/>
     </request>
   </entry>
   <entry>
