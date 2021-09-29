@@ -1,3 +1,4 @@
+/*Copyright 2021 Cognitive Medical Systems*/
 import java.text.DecimalFormat;
 
 public class NumberToEnglish {
